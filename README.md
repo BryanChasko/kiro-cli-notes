@@ -1,6 +1,6 @@
 # Professional Kiro CLI Setup Guide
 
-Based on guidance from 10 processed Kiro tutorial videos, this repository provides a structured approach from Day 1 basics to production-ready configuration.
+Based on guidance from 10 processed Kiro tutorial videos, this repository provides a structured approach from Day 1 basics to production-ready configuration for **any Kiro CLI project**.
 
 ## Attribution
 **Content Source**: Analysis of 10 Kiro CLI tutorial videos  
@@ -8,6 +8,12 @@ Based on guidance from 10 processed Kiro tutorial videos, this repository provid
 **Video URLs**: See individual video directories for specific attributions  
 **Repository Maintainer**: Bryan Chasko (@bryanchasko)  
 **License**: MIT License  
+
+## Related Projects
+**Video Transcription Implementation**: For the complete technical implementation of our video processing agent that analyzed these tutorials, see [kiro-cli-custom-agent-screenpal-video-transcription](https://github.com/BryanChasko/kiro-cli-custom-agent-screenpal-video-transcription)
+
+## Purpose
+This repository contains **general Kiro CLI knowledge and best practices** extracted from professional video tutorials. The video transcription was used as a **use case** to demonstrate Kiro CLI capabilities, but this repo focuses on universal setup patterns applicable to any development project.
 
 ## Quick Start
 
