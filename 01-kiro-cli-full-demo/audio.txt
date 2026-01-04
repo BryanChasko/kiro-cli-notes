@@ -1,0 +1,898 @@
+---
+Video: Build with Custom AI Agents in Terminal | Kiro CLI Full Demo
+Video ID: HI_qexVlU2Y
+URL: https://youtu.be/HI_qexVlU2Y
+Duration: 38:01
+Creator: AWS Kiro CLI Team
+Platform: YouTube
+Transcribed using: OpenAI Whisper
+---
+
+What if AI could write code directly in your terminal,
+understand your entire project context,
+and enforce quality standards automatically,
+all without leaving the command line?
+That's Kiro CLI,
+a Genetic AI built for developers who live in the terminal.
+It reads your code base,
+writes production ready code,
+runs automated quality checks,
+and connects to your databases.
+Everything configurable and shareable with your team through Git.
+Today, I'm building a complete MIRN stack task manager app from Scratch.
+You'll see how to set up project standards with steering files,
+configure MCP servers for external integrations,
+create custom agents,
+build a full stack app,
+and deploy it to AWS.
+Let's dive in.
+All right, so let's start by launching Kiro CLI.
+It's as simple as running one command.
+But before I do that,
+I'm going to go ahead and create a project folder.
+So make directory tasks,
+MIRN.
+I'm going to CD into my project directory,
+tasks MIRN.
+And then now that I'm in my project directory,
+this is where I can start by launching the Kiro CLI.
+It's as simple as running this one command.
+Kiro CLI.
+Now I am already logged in via GitHub
+and you'll be able to log in via GitHub or your Builder ID
+and some other ways to log in through your IDC.
+So let's go ahead and see what it looks like.
+This is a chat session,
+and we have currently an interactive AI session
+running in our terminal where we can build something
+by prompting it with natural language.
+So I can just say create a simple express JS server
+that runs on port 3000 with the root endpoint
+that returns hello world.
+Just to see how it naturally generates the code
+from our natural language.
+All right, and you can see the diff here.
+It's actually creating a server.js file
+using this tool called write
+and it's asking me for permission to use this tool.
+I will say yes,
+you can use this tool to write to my file system.
+This file called server.js with some code inside of it
+and it's writing the code in a certain way
+that we will cover how we can steer it
+in such a way that it writes the code
+following our team's best practices.
+But for now, it does write the code
+and we can actually test to see if this works.
+So run the server.
+We should start with the hello world at least works.
+And right now it did create the file
+but it hasn't installed the dependencies yet.
+So when it tried to run the server,
+it ran into an error and it is smart enough to recognize
+the error and fix the error on its own
+saying that express is not installed.
+Let me install it first.
+And now there's actually a new tool that is using shell.
+It's called shells where it can run this command
+and PM install express to install dependencies
+and I'm giving it permission by typing yes.
+All right, and now it's asking to run the shout tool again
+for node server.js.
+Now I could type in T.
+If I type T for trust,
+it will be trusted to use this tool
+without asking me again during this chat session.
+So this is type in T.
+So it doesn't have to ask me for permission
+to run these shell commands every single time.
+But sometimes you do want it to ask for permission.
+So it's really up to you on how much control
+you want to have over what permissions you give it.
+So servers running on port 3000,
+we can verify that this works by going to localhost
+colon 3000.
+And as you can see, we have a hello world working perfect.
+Okay, so let's go back to the terminal.
+So the AI generated our express server
+and we have a basic express server running
+where install dependencies and hello world works.
+However, what if I want the AI to generate code
+so that it's according to my team standards
+or my coding standards and best practices
+that I would like it to use?
+For example, maybe I wanted to use the async await syntax
+instead.
+If I want to steer it in the right direction
+in terms of how it generates the code
+or what types of practices it uses,
+I can generate something called a steering file.
+So this is how that works.
+I'm going to stop the server from running
+by pressing control C first
+because I want my user prompt back
+so I can type in my prompt.
+And the server is now stopped
+and I can tell it to actually run a shell command
+using this bang operator
+and then just give it a typical shell command.
+And the benefit of using this is instead
+of a natural prompt where it would use up credits.
+This will just run as a shell command
+that will not consume any credits.
+It's actually just going to run it directly
+just as a shell command without having to use AI.
+And this will save some credits,
+especially when I'm creating files
+or folders that I know I want to exist in my project.
+So this is where the steering is going to live.
+It's going to be inside of my project folder
+in my project root folder
+in a folder called dot key row slash steering.
+And in this steering folder is where I can put in
+dot MD files, markdown files
+where I can write in natural language
+my team's best practices and conventions
+of how I wanted to generate code, for example.
+So here I'm going to give it another shell command to run
+and notice when I ran this shell command
+it did not use up any credits.
+And same here, I'm opening up them with this file
+called backendstandards.md
+and right now it's an empty file
+where I can give it exactly my team's best practices
+for generating backend code.
+I will press I to insert
+so that I can insert content into this file
+and I will paste my team's best practices.
+And this may vary between your teams
+or your different projects of what types of best practices
+to involve when generating code.
+So now I wanted to use the async awaits syntax
+try catch blocks for air handling consistent response formats
+in this format with success,
+which is going to be a Boolean and any data,
+any errors and follow restful conventions and so on.
+So now that I have pasted it in,
+I can save this file by pressing
+scape colon WQ right and quit.
+Now I can actually see this in action
+by telling it now to rewrite,
+rewrite the server.js file.
+And let's take a look at how it now knows
+how to rewrite this code based on my team's best practices.
+And it knows that it's going to follow the backend standards
+for my project from that steering file
+that we had just generated.
+And tada, look at that.
+Now we have our team's best practices
+incorporated in its code generation.
+I will say yes, allow it to use this tool called right.
+And it has followed my best practices.
+Awesome. Let's see if that still works on server.
+And let's see what that looks like.
+Perfect.
+This is more in line with how I wanted to output a response
+when I give a request.
+So there we have it.
+That's steering and action right there.
+And since this is going to be a full stack
+burn application,
+I also want to create steering for my front end.
+So let's go ahead and do the same thing,
+but with front end standards.
+And it will also live in the same directory
+in my project route dot key row slash steering
+and inside of a dot MD file called front end standards dot MD.
+Here I will give it my team's best practices for front end.
+And these best practices I will insert once again
+by pressing I to insert and paste my team's best practices.
+You might have a shared repository where these best practices
+are written down for the team to follow.
+And that's where you might be getting it from as well.
+And this is what I have this is related to react
+and how I wanted to follow react 19 conventions
+because I want to build an app in react 19.
+So here we go.
+And then now I have my content here.
+I'm ready to save it by pressing escape colon WQ awesome.
+Now I also have front end standards loaded.
+And let's just take a look at what the context shows
+because the way that these steering files work
+is they're loaded into the context window.
+So if I do slash context show,
+you can see that there are two files loaded
+into the context window.
+And it is taking up a certain percentage of my context window.
+Now there's one thing to keep in mind.
+If I'm about to start building out the back end,
+do I really need it to have the front end standards
+loaded into the context window?
+Probably not.
+I want to be efficient with how it uses the context window
+because with AI, when the context window starts
+to become more and more full,
+it becomes less and less effective
+at the task that I'm telling it to do.
+So when I'm building out the back end,
+maybe I don't want it to follow the front end standards
+as part of the context window
+so that I have less context bloat when I'm generating the code.
+And we can do this using custom agents.
+We're going to talk about custom agents in just a little bit,
+but let's also add a couple more features here,
+such as MCP servers.
+So let's talk about MCP, model context protocol.
+MCP allows Kiro CLI to connect to external services
+and tools, giving the AI real-time access
+to things like databases, APIs, and documentation.
+And also other tools such as Chrome DevTools
+if I wanted to be able to actually open up a browser on its own
+and see the front end, for example,
+just like I would see the front end
+so I can leverage the benefits of its visual intelligence
+so that it can actually see the UI
+and see what I'm seeing, fill out forms, and so on.
+Or maybe a back end related MCP servers
+such as a MongoDB MCP server
+so that it can actually interface with MongoDB
+in real-time and populate data into it
+and do some analysis on the data
+and other particular tasks relevant to MongoDB.
+So let's go ahead and install some MCP servers
+by configuring the MCP.json file,
+which we are going to have to create in our project.
+Here, I'm actually going to tell it to create a new file
+called MCP.json.
+And this file is going to live in my global Kiro folder,
+which is located inside of the user home directory
+inside of a folder called .Kiro slash settings slash MCP.json.
+So I want to create this file
+and this is where I can configure the MCP servers
+that Kiro CLI will be able to access
+when it needs to connect to certain external services
+that we're going to configure right now.
+All right, so this is the code that I'm putting in.
+This is JSON file.
+So I have JSON syntax here with curly braces
+and then the first property called MCP servers.
+That's how it knows where all of our MCP servers are.
+I'm going to be configured.
+And the value is another JSON.
+So it's a nested JSON.
+And each MCP server configuration, as you can see,
+has the name of the MCP server
+and then nested JSON with the command that it would run
+and the arguments that it would provide
+when it runs this command and so on.
+So when you are using certain MCP servers,
+you want to make sure that it has access
+that your machine actually has access
+to the command that it can run.
+So UVX, I need UVX installed or NPX installed
+in this case for Chrome DevTools.
+Let's continue looking at more MCP servers
+that I'm going to configure here
+and the MongoDB MCP server.
+Cool.
+So this is our MCP configuration file
+and I'm going to go ahead and save this
+by pressing escape colon WQ
+and it's going to save this file.
+And we can actually see the MCP servers
+that are configured now.
+But during this chat session
+is when we configured the MCP servers.
+So it will not be aware of these MCP servers yet
+because it loaded up this chat session
+originally without any MCP servers configured.
+So if I do slash MCP,
+this is a built-in command within Kiro CLI.
+It'll say no MCP servers enabled.
+So we're going to actually have to quit the session
+using slash quit and then start the session again.
+Now as you can see, the MCP servers have loaded up.
+Fetch, context 7, Chrome DevTools,
+and MongoDB MCP server.
+Just going to go ahead and kind of outline
+what some of these do, by the way.
+So Fetch is going to allow us to give a URL to Kiro CLI
+and it'll be able to extract data from that web page.
+So this will be useful for if you needed to extract data
+from a certain web page about information
+that is on that web page.
+Another one is context 7.
+Context 7 is the MCP server
+that's going to be used to fetch up-to-date documentation.
+So it's similar to Fetch, but it's more specialized
+in the fact that it's really more focused
+on looking at places where documentation related to code
+is installed or shown or presented.
+So if I wanted to get the latest documentation
+on a library that the AI is not familiar with
+because of its training data cut off,
+I can use context 7 to actually get up-to-date documentation.
+Chrome DevTools allows us to use the Kiro CLI in such a way
+that it could actually open up a browser
+and interface with the browser and fill out forms,
+click on buttons, see the UI,
+and also see the error logs on the developer tools
+on the browser.
+MongoDB MCP server will allow Kiro CLI to actually access
+my MongoDB and see the data inside of it
+and see all the different tables I have
+and the databases I have inside MongoDB
+and work with the data in a way that I want it to work with
+by telling it what to do with natural prompts
+in human language.
+But what's the downside of having all these MCP servers loaded?
+Well, let's take a look at the context window.
+As you can see, the tools, and when I say tools,
+these are going to be the tools that the MCP servers come with.
+If I do slash tools, these are all the tools
+that are being loaded into the context window.
+Chrome DevTools MCP has all these tools loaded into it.
+Context 7 has these tools, fetch, has this one,
+MongoDB has all these tools.
+There's a lot of tools that's using up my context window
+and as you can see, I'm already at 6.2 percent
+of my context window being used up just by the tools
+and also my context files are being used
+as part of the context window here as well.
+So as our context window starts to grow,
+AI becomes less effective, this is context bloat
+and maybe we don't want all these MCP servers
+to be used when I'm building out something.
+So if I'm building out the back end,
+do I really need it to use Chrome DevTools MCP?
+Probably not, it doesn't need to use the browser
+to look at the UI.
+Maybe I just wanted to give it access
+to the MongoDB MCP server.
+So I can provide this granular control using custom agents
+so that when Kiro CLI loads up,
+it can load up with just the tools that it needs
+for the tasks that I need it to do.
+So if I'm building out the back end,
+let's go ahead and create a custom agent
+that's going to specialize in just back end related tasks
+where it will only use the MongoDB MCP server, for example.
+In order to create a custom agent,
+you can use the command slash agent create
+and provide it a name using dash dash name.
+And also if you just type slash agent create
+by accident and press enter, it'll actually tell you
+you need some extra arguments that need to be provided
+in order for this command to run fully.
+So the documentation does show up here.
+So this is how I would follow it.
+So I can press the up arrow to go to toggle
+through my previously typed commands by the way.
+So slash agent create dash dash name
+and I'll give it the name of back end agent.
+And this is a basic configuration format for a custom agent.
+I will need to provide a description prompt
+and the MCP servers that has access to the tools
+that can use within that MCP server
+and even the files that it loads up
+as part of the context window.
+If you recall, we created two steering files
+and maybe for the back end agent,
+I don't need to know about the front end coding standards.
+I just need to know about my back end best practice
+coding standards.
+So let's go ahead and fill this out
+so that this agent is more specialized
+to do our back end related tasks.
+For the description,
+this is really for us to be able to get a better idea
+of what this back end agent is doing
+or our team can also understand
+what this back end agent is really for.
+This description is for us to understand more about this agent.
+So let's just give a description
+that will be easy enough for our team to understand
+what this is going to do.
+So I'll type I for insert
+and then I will start typing in some description.
+So I'm providing a description
+that is going to be used for my team
+to be able to understand what's going on.
+And for prompt,
+I'll also need to provide a string.
+Let's go ahead and give it quotes here.
+Perfect. Okay.
+So the prompt is going to be
+what the system prompt is going to be
+for this back end agent.
+When it loads up,
+it will know it's rolled
+that it's going to be playing in my workflow.
+I'm telling it what it's going to be specializing in
+so that it understands the task
+that I wanted to focus on.
+So this prompt is for your AI agent
+to be able to comprehend.
+This is a system prompt for MCP servers.
+I can also configure that right here.
+I'll go ahead and paste my MCP configuration.
+Now I messed up with the curly braces here.
+So let's go ahead and actually make sure
+that the curly braces are in the right place.
+So recall here,
+I'm going to need to get for MCP servers.
+I need to provide it a JSON object.
+So that's why I need curly braces right here.
+Perfect.
+So now I have MCP servers as the property name
+and the value is a JSON object
+with the key called MongoDB MCP server.
+That's the name of my MCP server,
+which also has its configuration information right here.
+For resources,
+maybe I wanted to load up with just
+steering files related to my back end standards.
+So the steering file that we created earlier on in this demo
+called backendstanders.md file.
+It will load up only this steering file
+rather than both the front end standards
+and the back end standards,
+which will also help minimize the context bloat
+for this specialized agent.
+So this custom agent now is going to,
+when I use Kiro CLI,
+it's going to load up with only the tools
+that it needs to get the job done.
+It knows about the system prompt
+about what it's really going to be focused on
+when it's helping me with the task
+and it also is loaded up with the steering files
+that are relevant that I'm allowing it to load up
+into its context window.
+Therefore, I'm being more granular
+when it comes to controlling what types of data
+it loads up with.
+I can go ahead and save this file
+by pressing escape colon WQ.
+But before I do that,
+there's actually one thing I wanted to say,
+this use legacy MCP JSON property.
+We're going to want this to be false.
+This is very important in order for this to work.
+Perfect.
+So now I can go ahead and write and quit this file
+by pressing escape colon WQ.
+Perfect.
+A back end agent has been created successfully.
+I can take a look at my agents here,
+slash agents to see a list of agents that I have
+and slash agents swap.
+And as you can see, I have this back end agent here
+as an option that I can swap into.
+And when I swap into this back end agent,
+let's take a look at how it's been loaded up.
+It says the name of the agent that I'm currently using now.
+It's no longer the default Kiro CLI agent.
+It's my specialized custom agent back end agent.
+And if I type in slash MCP,
+we'll see that it's only loaded up the MongoDB MCP server.
+If I also take a look at the context window,
+we'll see that now it's no longer 6.0 something percent
+that we saw earlier.
+So let's context bloat for this custom agent.
+So it has more of its context window available
+to be efficient at generating code
+and doing the task that I wanted to do.
+If I do slash context show,
+we can see that only the back end standards steering file
+is being loaded and the front end steering file
+is not being part of the context window.
+Also helping eliminate some of that context bloat
+that we saw earlier.
+So let's go ahead and have it do our back end task
+to build out the full crud for tasks
+so that it can create, read, update, and delete tasks
+on the back end for the API.
+And use, and maybe I also wanted to tell it
+what database table I wanted to save it into of the task.
+So use tasks.
+So I'm giving it a prompt and it's getting to work
+as a specialized custom agent
+that's much more zoned in on back end related tasks.
+It's installing Mongoose so that a Mongoose is an ORM
+that will help it interface with MongoDB.
+It's one of the best practices.
+I'll say yes, allow it to use this tool
+for the shell command to install Mongoose, creating a schema.
+Also go ahead and type in T for now to trust it
+to use this right tool so that it's not going to ask me
+every single time.
+It needs to write some code into a file.
+As you can see, it's creating the crud routes
+using my best practice conventions
+from my steering file for my back end standards
+that we had defined earlier.
+Got rid of the hello world API.
+That was just for our test and set up.
+And it's also seeding the database with some tasks.
+Perfect.
+I will say T to allow it to populate the database.
+Perfect.
+Now we can actually verify that this works.
+Let's just see if we go to a local host 5,000 slash
+API slash tasks.
+It'll actually show me all the tasks on my browser.
+So let's just say start the server or actually local host
+3,000.
+That's where it's running the backend.
+Okay.
+Running on port 3000 MongoDB connected.
+Let's take a look.
+And there you have it.
+Now it's showing the JSON output from the API.
+I can click on pretty print.
+You can see much better.
+There are my tasks and we have built out the backend.
+Wonderful.
+So now that we have our backend created,
+we can also create a specialized custom agent
+for our front and related tasks.
+So let's see how that would look like.
+I'm going to stop the server for running by pressing Ctrl C.
+Currently we're in our backend agent
+and I want to build out the front end.
+And maybe I don't want the backend agent to be
+building out the front end for us.
+So I can go ahead and create a new agent slash agent create
+and then provide your name called front end agent.
+Here, once again, we see an agent configuration file
+that it's going to show me the default syntax for.
+And I can allow it to use certain tools
+and certain steering files as resources to get the job done.
+So let's go ahead and fill this one out as well.
+All right.
+So I'll start by pressing I so that I can insert
+and then I will go start with the description.
+So that my team will understand what it's for.
+I need to provide a string front end development
+specialist with access to react web documentation
+and browser automation tools for testing and debugging.
+Let's go ahead and fill out the system prompt
+so that the AI knows what I wanted to focus on when it loads up.
+The role that I wanted to play in this workflow.
+This will also be a string.
+And I'm telling it that you are a front end development
+specialist focused on building modern web applications,
+specializes in react or other front end frameworks,
+specializes in HTML CSS driver script type script,
+responsive design, browser testing and debugging,
+and so on.
+And I wanted to be able to use front end libraries via
+context seven to get access to up to date front end
+libraries and code and also for it to be able to interact
+with Chrome DevTools.
+So I'm telling it that that's what it is designed to do.
+So it knows when it loads up what it's supposed to focus on.
+Now I told it it's going to have access to the context seven
+MCP and the Chrome DevTools MCP.
+So let's go ahead and also set up the MCP server configurations.
+So inside of these curly braces,
+I'm going to go ahead and paste my MCP configuration,
+but I pasted it once again a little bit off.
+The curly braces you see at the end,
+those would need to wrap around that.
+So let me go ahead and update that.
+So MCP server needs to start with the curly brace
+and then the name of the MCP tool or MCP server
+and then a closing curly brace for the MCP server,
+context seven here and then a closing curly brace
+for the MCP servers nested object.
+One last thing I also want to do,
+well, a couple of things I still want to do.
+Two more last things is that for the steering files,
+I wanted to load up all of my steering files.
+It doesn't need to know about my back end best practices,
+but I would like it to know about my front end best practices.
+And this is the name of the steering file
+that we had created early on in this demo.
+So it's going to load up our front end standards.
+And lastly, this is very important once again,
+you want to turn use legacy MCP JSON,
+toggle that to false.
+All right, so let's go ahead and save this file,
+pressing escape colon WQ and front end agent
+has been created successfully.
+It'll take effect on the next launch.
+So we can launch it once again
+by using this command agent swap
+because I'm ready to start building up my front end.
+So as you can see, we see our default agent
+that we started off with our back end agent
+and our newly created front end agent.
+So let me just go ahead and press enter here.
+And we are now talking with our custom agent,
+the front end agent that specializes
+in front end related tasks.
+I can give it a prompt, react 19 app.
+And in my prompt, I want to tell it
+to use my context 7 MCP server
+so that it can get recent react 19 documentation
+so that it can more accurately build out our react front end.
+So I'm telling it to use context 7 MCP server.
+And also, maybe one component I wanted to have.
+So it's my prompt and it's going to get to work.
+As you can see, it is going to use my context 7 MCP server
+to look at some react documentation.
+I will allow it to do that.
+So it's asking me for permission to be able to use these tools.
+And it is getting official documentation
+from the react website, react hooks,
+form state management best practices.
+And this is a great way to get your AI
+to use some of the more agreed upon best practices
+from the official sources using context 7 MCP.
+It's using Tailwind now.
+Awesome.
+That's going to be part of the UI styling best practices
+that's more modern.
+So it's able to understand what's modern in real time
+using this context 7 MCP server.
+And it's going to create the react app using Vite.
+So, and I can trust the code that it generates even more now
+because it's using some of the official sources
+of truth from online using context 7.
+This allows me to trust my AI's code generation a lot more
+when it's using an MCP server such as context 7.
+It looks like it's hanging a little bit on create Vite installation.
+Let's just give it a little bit of time
+to see if it's still just hanging for that.
+Otherwise, I could press Ctrl C
+and then tell it to continue the task
+and it'll just continue what it needs to do.
+So I'll press Ctrl C
+because it looks like it was hanging for a little bit
+and I will say continue with your task
+and it will know based on the session
+kind of what I'm talking about.
+So it's thinking perfect, there we go.
+And it runs into some errors
+and it's able to figure out what those errors are
+and then fix itself along the way.
+Installing some dependencies,
+creating the base HTML file for the DOM
+on the front end.
+While it's doing that, I could go get my coffee,
+talk to some colleagues, understand what's next,
+saves me some time as well.
+All right, and it's gonna start my back end in front end
+so we can see what the end result looks like.
+Okay, let's see.
+We can take a look at our front end
+which should be also connected with our back end
+which we had some data already seeded
+into the back end database.
+So let's take a look.
+Now, it looks like there's an error and that's okay.
+It says, you're trying to use tailwind CSS directly
+as a post CSS plugin.
+So here, there's an error
+and we can actually now ask it to use Chrome DevTools MCP
+server to investigate this error.
+So here's some issues here.
+I can say Control-C to stop the server
+and I will say the page has errors
+and is not loading up.
+Use Chrome DevTools MCP to investigate the issue.
+And I will go ahead and make this window a little bit smaller
+so you can actually see that it's going to open up
+a headless browser for me
+and I'm gonna trust it to do that using Chrome DevTools MCP.
+It's gonna open up a headless browser.
+It's gonna automatically use Context 7 again
+to help fix the code.
+It sees that there's some errors.
+It requires a different plugin.
+It's able to understand those errors.
+Hasn't yet opened up the headless browser yet
+because it's already seeing some errors
+just from starting the server.
+And there we go.
+Okay, so something is loading up here
+and it's gonna check if the back end is running.
+It was not running so it's gonna go ahead and get that running.
+MongoDB is connected.
+But as you can see, this doesn't look like the app
+that we really want, right?
+We can go here.
+The CSS is not really exactly how we want it to be
+but it does have our tasks.
+So it is connected with the back end.
+The front end is connected with the back end.
+Let me go ahead and go back to the terminal
+and I will say the front end styling is not showing.
+Can you investigate with using the Chrome Dev Tools MCP server
+to see what I'm seeing?
+So it's actually taking a screenshot of this page
+using the Chrome Dev Tools MCP.
+As you can see, it's really working with this browser
+on its own.
+Okay, now it fixed some issues.
+And now the front end is loaded up better with some CSS.
+Now I wanted to maybe actually test out some of these tasks
+that I would perform on this app.
+So I wanted to actually go ahead and do that.
+So let's see what it does.
+Now there might be some issue with my Chrome Dev Tools MCP server.
+Let's see why...
+There might be a syntax issue in my MCP configuration file
+for the custom agent.
+So it's using Mac OS screen capture.
+So something is wrong with the Chrome Dev Tools MCP server.
+So let's go ahead and configure that real quick.
+Let me go ahead and open up a new shell tab.
+Let's open this up in the IDE to see maybe
+if there's some syntax issues with the Chrome Dev Tools MCP server
+for this custom agent.
+Okay, I think I made a small syntax issue.
+But it has created this app, so that's good.
+Let's check its connection with Chrome Dev Tools MCP.
+So it looks like it has an issue with Chrome Dev Tools MCP right now.
+Okay, let's go ahead and slash quit.
+And then Kiro CLI.
+And then do slash agent swap.
+Frontend agent slash MCP.
+And I see that Chrome Dev Tools MCP is there
+and context seven MCP is there.
+Okay, now I can tell it to test connection
+with Chrome Dev Tools MCP, see if it works.
+All right, now it works.
+So it looks like the Chrome Dev Tools MCP server
+in order for it to work, I did have to quit the session
+and start the session again.
+So some MCP servers require you to do that.
+Because it opened up a headless browser for me automatically
+and it's working.
+So that's the solution for certain MCP servers
+you're going to have to exit the session and start the session again.
+And then you can swap to your agent that is using
+Chrome Dev Tools MCP for example.
+All right, so now I can actually ask it to do
+what I wanted to do with Chrome Dev Tools MCP.
+Okay, so I'm going to tell it to load up the website
+using Chrome Dev Tools MCP.
+It's going to go ahead and I'll tell it to trust.
+It's going to go ahead and run the server
+and then navigate to the page.
+As you can see, it's navigating by itself.
+It's so navigated to the page by itself
+and it's going to take a screenshot.
+And it's going to, right now, the context window
+has overflowed now because it's, you know,
+it's done a lot of tasks already.
+It's written a lot of code and it's going to compact
+the context window automatically.
+What that means is it's going to summarize the history
+of our chat session so that it's creating more space
+in the context window by creating a summary
+of everything is done rather than just working
+with a very full context window.
+Yep, I'm going to tell it to implement those modernizations
+that it has identified as ways to improve this app
+based on what it took a screenshot of
+and we'll get to see exactly how it does that.
+Awesome.
+Looks like it's making the buttons a little bit better looking.
+All right, looks like it's improving the UI here.
+Adding some keyframes for fade in
+and it's going to just go ahead and navigate the page.
+Reload.
+Take a snapshot.
+Take a screenshot as well.
+After doing these tasks, the context window has gotten a little bit
+more filled up so it's going to summarize the history
+so that it can make room in the context window
+and it's going to use the summary to help it continue
+on with this task.
+All right, so now I can tell it to use Chrome DevTools MCP
+to actually create a new task.
+And so use Chrome DevTools MCP to create a new task using the UI
+and confirming it works with this feature.
+So it's going to go ahead and do that.
+It's going to run the click.
+So as you can see, it's actually clicking by itself
+on the new task button.
+And then it's asking for permission to fill form a press T.
+It's going to fill out the form by itself.
+And then it's going to click to submit the new task.
+And now we have an extra task here.
+So it is.
+Now it's going to take a screenshot, verify that it works.
+Now, looks like the context window is being overflowed.
+There's some ways that we can manage the context window.
+Let's go ahead and do that.
+Slash context.
+So it has managed this context window by itself.
+So let's just go ahead and tell it to trust so that it can
+replace the context history here.
+Let's do slash clear.
+It will clear out the conversation history.
+And sometimes you're going to have to exit the agent
+and then start it up again.
+So slash quit.
+And then I'll just say Kero CLI.
+Start up again.
+Slash agent swap.
+Frontend agent.
+And then use.
+What I don't like about this UI is there's a lot of space here, right?
+So if I actually make this bigger.
+A lot of space on the right side.
+I don't like that.
+So I want to tell it and fix that.
+But we were able to verify that it's able to use the Chrome DevTools
+MCP to create a new task using the UI in an automated way.
+Now I was checking if there's a browser instance running.
+It's going to navigate to the page.
+To an existing page.
+It's just navigating here since I already have this page open.
+Okay, it's going to close that browser instance.
+And it's going to start a new browser instance
+because there was a conflict from my previous session
+so that it can start fresh.
+So now the MCP server has been disconnected when it killed that process.
+So let me just go ahead and start up the custom agent one more time.
+But I did notice an issue with the layout.
+I'll tell it to update it.
+So this page looks a lot better now.
+So that's good.
+Let's just start it up one last time.
+And have it test our edit and delete features using the frontend agent.
+Go to the frontend agent.
+Use Chrome DevTools MCP and make sure you test out the edit feature and delete feature.
+I'm going to tell it that I trusted to use this tool.
+It's opening up a headless browser here.
+And it's asking me for permission to navigate to that page.
+I'll say yes.
+It can navigate to the page.
+But it's not localhost3000.
+It's actually at localhosts.
+I think 5173.
+So it's going to figure that out on its own.
+Because localhost3000 was in our back end for our API.
+I'll stop it.
+The frontend is not on localhost3000.
+Check where the frontend server would be running first and then resume the task.
+So we can check my project structure.
+Take a look at the project and it will find that it's at port 5173.
+So there we go.
+Now it's navigating to that page properly.
+Taking a snapshot.
+There we go.
+It has seven tasks.
+Now it's going to go ahead and use click tool to actually see if the edit feature works.
+So I'll trust it to use the click tool.
+And as you can see, it has clicked on the edit.
+And it's actually going to go ahead and update this task.
+It's filled it out.
+It's going to ask for permission to fill out the form.
+Since we opened up a new session, it's asking for permission to use these tools again.
+So it has updated it.
+And now it's going to click to send the update.
+Click on the form.
+Update task.
+And there we go.
+And there you have it.
+I was able to use the Chrome DevTools MCP for to automate this test for me so that I don't really have to leave my terminal much.
+It's taking a screenshot to verify everything looks good.
+And we are complete.
+And that's the end of this demo.
+Hope you were able to see how we were able to use Agentex CLI tools using Curious CLI to not only write code,
+but also customize agents so that the agents are more specifically tailored to the task that they need to work with.
+We also took a look at some MCP servers that would align with the tasks for back end code generation versus front end code generation.
+And we also saw some ways to resolve issues with Chrome DevTools MCP where you would have to restart the session so that the Chrome DevTools MCP would load up properly.
+Curious CLI brings AI power development to the terminal with steering files that teach the AI your team standards and best practices,
+MCP integration that connects to databases, APIs, and documentation, custom agents that provide specialized expertise for different workflows,
+and you can make everything shareable and version control through Git.
+This isn't just about writing code faster, it's about writing better code with built-in quality checks, consistent standards, and seamless team collaboration.
+Whether you're a solo developer or part of a large team, Curious CLI helps you build production-ready applications with confidence.
+Thanks for watching. Start building with Curious CLI today.

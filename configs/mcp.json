@@ -1,0 +1,38 @@
+{
+  "_attribution": {
+    "source": "Kiro CLI Videos 04 & 07: MCP Server Integration",
+    "creators": "AWS Kiro CLI Team",
+    "maintainer": "Bryan Chasko (@bryanchasko)", 
+    "guidance": "Professional MCP server configuration patterns"
+  },
+  "mcpServers": {
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"],
+      "disabled": false,
+      "autoApprove": ["fetch"]
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."],
+      "autoApprove": ["read_file", "list_directory", "get_file_info"]
+    },
+    "aws-docs": {
+      "command": "uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "env": {"FASTMCP_LOG_LEVEL": "ERROR"},
+      "disabled": false
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server:latest"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "$(aws ssm get-parameter --name '/kiro/github/sso-token' --with-decryption --query 'Parameter.Value' --output text)"
+      },
+      "disabled": false
+    }
+  }
+}

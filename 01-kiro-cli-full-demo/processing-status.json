@@ -1,0 +1,22 @@
+{
+  "video_id": "HI_qexVlU2Y",
+  "title": "Build with Custom AI Agents in Terminal | Kiro CLI Full Demo",
+  "url": "https://www.youtube.com/watch?v=HI_qexVlU2Y",
+  "processing_status": "frames_extracted",
+  "frames_extracted": 18,
+  "audio_file": "audio.mp3",
+  "frames_directory": "frames/",
+  "processing_notes": [
+    "Frame extraction completed successfully - 18 frames",
+    "Audio file already exists (44MB)",
+    "Vision analysis server needs troubleshooting",
+    "transcribe_video tool hanging on re-download"
+  ],
+  "next_steps": [
+    "Fix vision server connectivity",
+    "Process audio with Whisper directly",
+    "Analyze frames manually if needed",
+    "Create unified transcript"
+  ],
+  "timestamp": "2026-01-02T18:20:00Z"
+}

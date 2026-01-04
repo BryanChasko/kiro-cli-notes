@@ -1,0 +1,171 @@
+---
+Video: Let Kiro Do the Work: Automate Your Code and Documentation with Hooks!
+Video ID: KtcPB8x6HU0
+URL: https://youtu.be/KtcPB8x6HU0
+Duration: 14:11
+Creator: Girish (Cloud with Girish channel)
+Speaker: Girish - AWS Community Builder
+Platform: YouTube
+Published: 2025-11-02
+Transcribed using: OpenAI Whisper (model: tiny)
+---
+
+Hi, welcome to my channel Cloud with Grish.
+I'm Grish and AWS Community Builder and Cloud Tech Intergest with expertise in delivering
+customer focus and business impacting cloud transformation programs of high complexity.
+In my previous video, I shared how I used AWS Keyroad Wipe Coding feature to build
+a customer lookup API powered by API Gateway, Lambda, DynamoDB and AWS Sam.
+Unlike traditional IDE, Keyroad eGen AI in Able ID that support both spectrum and development
+and wipe coding.
+In addition to specs and wipe coding, hooks are another powerful features that automate repetitive
+task.
+These features saves developer valuable time and allow them to focus more on the functional
+aspect of software development.
+When working on rapid application development, automating repetitive tasks can save significant
+time and reduce errors.
+Keyroad IDE known for accelerating full-stack app development with AI powered code generation
+also supports the hook feature, a powerful way to trigger automatic actions whenever your
+code changes.
+In this video, I will explore how Keyroad hook feature works using a simple hello word python
+program.
+I will show how hooks can automatically update a readme file whenever the python code is modified.
+I will then add another hook that not only create or update the readme file, but also run
+bandit and open source tool that is can python code for common security vulnerability
+such as hard coded passwords.
+Let's see what did I build and why?
+So, I wanted to demonstrate how you know hooks are another value added feature of the
+gen AI enabled IDE.
+Hooks can automate repetitive tasks such as updating documentation or scanning code for security
+vulnerability.
+Here are the two hooks I created.
+The first hook is for documentation update and the instruction for Keyroad agent are basically
+saying that whenever the python source files is modified then review the change and update
+the documentation.
+So, this is just the instruction for the Keyroad agent.
+And the second hook actually takes it one step further though in this scenario is not only
+updating the documentation but also running the security scan using bandit.
+So, this is another set of instruction for Keyroad agent where I am saying that hey update
+the documentation and run the security scanning also.
+Now, this is a simple hello word program because the goal was not to build like any
+production record but to use a simple function to demonstrate how keyro hooks can automate
+repetitive tasks allowing developers to invest their time in building business logic instead
+of routine maintenance.
+So, read me file can be updated automatically while the developer focus on other more important
+business logic and the function creation path.
+So, let us look at like before diving in less review the diagram to understand how these
+component interact.
+So, we have a simple hello word python program.
+We also have a bandit package and then we have two keyro hooks one is to update read me.
+The second is that update the read me and also run bandit.
+Pericles it for this is basically you need to have keyro ID installed and ready to use.
+You need to have python, thering install on your local machine and then you also need
+the bandit package install for python.
+If you don't have bandit package then you just simply run the command pip install bandit.
+Let's look at what are hooks in keyro ID.
+So, hooks in keyro ID are automated trigger that run specific actions when defined event
+occur.
+Such as when a file is created, file is saved or file is deleted.
+There is also a manual trigger so you can invoke a hook manually.
+You can use hook for variety of different scenario.
+You can update the documentation automatically.
+You can regenerate the API specs when endpoint changes.
+You can generate commit message or summary based on the updated code.
+You can run the code scan when code is arrayed or updated and many more scenario.
+So, hooks being automation directly into your development environment making workflow is smarter
+and faster without relying on external scripts.
+This is time by letting the AI agent handle repetitive tasks while developers focus
+on innovation and quality.
+So, here is a example screen where I have a title for the hook.
+There is a description and then there is an event and the instruction for the keyro agent.
+Let's review the hook.
+So, here is a how it this hook is going to function, right?
+So, there is a hello word function.
+It is a very simple function that I have created.
+It is only thing is saying is hello word and basically it is in working that function
+here.
+Now, because we have a hook configured which is updating the readme file on the saving
+save the file event.
+So, saving this file will trigger the man this event and you should see the readme file
+has been created.
+So, readme file will look like this which is basically going to tell you that what
+this program is all about and the function definition how you can run this program and
+so on.
+This is a simple example of how keyro hook took care of creating the readme file based
+on the function code.
+If you update the code further then keyro will update the readme document to align with
+the code.
+Now, here is the second hook where update the function code.
+So, here we are basically updating the same function and I am adding a parameter this
+time that takes the name and then print the message.
+So, here like I am also adding a variable to a story hard coded password because I want
+to test the second hook which is going to scan for it.
+So, here is the function that hello word function I have updated now I have a name and
+then I am also saying here password is like just hard coded password, readme underscore
+password.
+So, now when I save this this will trigger the hook and you should see that readme file has
+been updated and because now this hook is doing like second action also so you will see
+a code scanning result informing of security vulnerability in the code due to hard coded
+password.
+So, here I have like this scanning that has been completed and it is saying that scan
+has detected this password.
+So, this is the bounded package that is doing it right but hook is invoking it.
+So, now you will see that there is an update to the readme file because we change the function
+and now I have a parameter for that function.
+So, readme file has been updated to say that this function this takes a parameter and then
+it is also added about the scanning.
+So, this is really cool because all I did what put focus on my function code.
+And the hook took care of updating the readme file and running this scan as soon as I save
+the code because that is the event I can figure the hooks on.
+So, let us see it in action quickly I will show you that how it looks like when we repeat
+this scenario if I make any change in the function.
+So, we will see it in action.
+So, let us see it in action.
+I have the Kiro ID up here and if you see here I have a Python function just like I was describing
+in the video.
+So, this function here is taking a parameter and then it is going to like print it.
+I also have an hard coded password here.
+I also have like here if I go to the Kiro then I will see that I have the hook configured right.
+So, I am going to like run this hook here and this hook is configured to get involved on file
+saved event just like I was explaining in the video.
+So, as soon as I save the file it should trigger the hook.
+So, now if I go here and let us look at the readme file also and this is readme file that has been
+generated here right.
+So, it is saying is giving an example that hey you can use the hello word by passing a parameter
+and then it also has noted that it has found like a password hard coded password right.
+So, let us go to our function here.
+I will close the readme let us go here and what I will do because I need to like make some change
+so that I can invoke it right.
+So, I save it.
+So, let us say I will call it like this password just to make a change and then I have
+a word gauge and so I save it.
+So, let us save it.
+Now, once I save is going to trigger so it has triggered the hook here and let us see that yeah
+it did let us see if it found the message.
+So, we will look for the message is saying hard coded password string and see it is saying that
+issue is that Greece password.
+So, if I go in my readme file I should see those changes here right.
+So, no changes in the function because I did not change the function definition itself but I do
+expect that it has updated the further based on the scanning.
+So, if you see here this is the readme file it was saying GB password found but now it
+is saying that the hard coded password Greece password because that is what I change in the program.
+So, it is pretty cool because I don't have to go back and basically like update the documentation
+the hook to care of it.
+So, this was a very simple example based on a yellow word but again the intent was not to
+create a complicated program but more like show that how a hook can automate some of the
+repetitive tasks.
+So, in this video I demonstrated how keyro can accelerate development by bringing automation
+directly into the development workflow allowing developers to focus more on creativity and
+logic rather than repetitive maintenance tasks.
+Whether you are updating documentation generating commit message, formatting code or scanning code
+hook acts as your silent code developer working in partnership by starting with this small practical
+examples and gradually combining them you can create a fully automated environment where
+every code change trigger meaningful action.
+Experiment with these hooks idea and see how keyro transform your everyday coding experience.
+Generative AI is transforming the way code is built and tools like hero makes the process even
+easier while debugging can become more challenging as more code is generated with generative AI.
+Keyro features such as specs driven development and design documentation generation
+can help address the challenge.
+I believe this is just the beginning and these tools will continue to evolve rapidly.
+I am constantly creating new content on various AWS topics so please take a moment to
+like this video and subscribe to the cloud with Greece channel. Your support helps me continue
+producing valuable AWS tutorials and workshop. Stay tuned for more exciting content.

@@ -1,0 +1,35 @@
+{
+  "video_id": "HI_qexVlU2Y",
+  "title": "Build with Custom AI Agents in Terminal | Kiro CLI Full Demo",
+  "url": "https://www.youtube.com/watch?v=HI_qexVlU2Y",
+  "frames_analyzed": 5,
+  "visual_timeline": [
+    {
+      "frame_id": "0001",
+      "timestamp": 0.0,
+      "description": "Man standing in front of computer monitor with hands outstretched giving presentation. White shirt, beard, books on shelves in background suggesting library/study setting."
+    },
+    {
+      "frame_id": "0002", 
+      "timestamp": 15.0,
+      "description": "Computer monitor displaying Chrome browser. Monitor appears turned off with no active browsing session."
+    },
+    {
+      "frame_id": "0003",
+      "timestamp": 30.0,
+      "description": "Frame analysis returned empty - possible black screen or transition."
+    },
+    {
+      "frame_id": "0004",
+      "timestamp": 45.0,
+      "description": "Frame analysis returned empty - possible black screen or transition."
+    },
+    {
+      "frame_id": "0005",
+      "timestamp": 60.0,
+      "description": "Computer screen showing code/script in black text on purple background. Shell script visible with 'Run' and 'Ready' buttons. Menu bar at bottom with Run, Ready, Exit options."
+    }
+  ],
+  "processing_status": "partial_complete",
+  "notes": "Vision analysis working. Need to process remaining 13 frames and correlate with audio transcript."
+}

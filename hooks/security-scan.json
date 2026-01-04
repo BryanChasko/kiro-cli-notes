@@ -1,0 +1,15 @@
+{
+  "_attribution": {
+    "source": "Kiro CLI Video 08: Security Scanning with Bandit",
+    "creators": "AWS Kiro CLI Team", 
+    "speaker": "Girish (Cloud with Girish channel - AWS Community Builder)",
+    "video_url": "https://youtu.be/KtcPB8x6HU0",
+    "maintainer": "Bryan Chasko (@bryanchasko)",
+    "guidance": "Automated security scanning patterns from professional tutorial"
+  },
+  "name": "security-scan",
+  "description": "Run security scan on code changes",
+  "trigger": "file_saved", 
+  "pattern": "**/*.py",
+  "instruction": "Update documentation and run security scan using bandit or similar tools, report any vulnerabilities found"
+}

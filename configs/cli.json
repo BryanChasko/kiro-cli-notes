@@ -1,0 +1,17 @@
+{
+  "_attribution": {
+    "source": "Kiro CLI Video 05: Credit-Smart Strategies",
+    "creators": "AWS Kiro CLI Team", 
+    "maintainer": "Bryan Chasko (@bryanchasko)",
+    "guidance": "Auto Mode cost optimization from professional video tutorials"
+  },
+  "chat.enableKnowledge": true,
+  "knowledge.indexType": "Best",
+  "model.default": "auto",
+  "mcp.loadedBefore": true,
+  "tools.trust": [
+    "read", "write", "execute",
+    "fetch.*", "github.*", "aws-docs.*",
+    "filesystem.*"
+  ]
+}

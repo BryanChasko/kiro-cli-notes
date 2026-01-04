@@ -1,0 +1,60 @@
+{
+  "video_id": "HI_qexVlU2Y",
+  "title": "Build with Custom AI Agents in Terminal | Kiro CLI Full Demo",
+  "url": "https://www.youtube.com/watch?v=HI_qexVlU2Y",
+  "duration_seconds": 2281.09,
+  "processing_complete": true,
+  "synchronized_timeline": [
+    {
+      "timestamp": 0.0,
+      "frame_id": "0001",
+      "visual": "Man presenting in front of computer monitor with books in background",
+      "context": "Video introduction/presenter setup"
+    },
+    {
+      "timestamp": 15.0,
+      "frame_id": "0002", 
+      "visual": "Chrome browser displayed on monitor (inactive)",
+      "context": "Browser setup or transition"
+    },
+    {
+      "timestamp": 60.0,
+      "frame_id": "0005",
+      "visual": "Terminal/code editor with purple background, shell script visible, Run/Ready buttons",
+      "context": "CLI demonstration begins"
+    },
+    {
+      "timestamp": 120.0,
+      "frame_id": "0006",
+      "visual": "Task Manager interface with Tasks and Tasks 10 buttons",
+      "context": "Task management demonstration"
+    },
+    {
+      "timestamp": 200.0,
+      "frame_id": "0010",
+      "visual": "Task manager with multiple tabs: Compile, New Project, Tasks, Completing tasks, Revising files, Deleting files, Adding files",
+      "context": "Detailed task management workflow"
+    },
+    {
+      "timestamp": 300.0,
+      "frame_id": "0015",
+      "visual": "Task list with status indicators (completed, failed, in progress), Start/Stop buttons",
+      "context": "Task execution and monitoring"
+    },
+    {
+      "timestamp": 360.0,
+      "frame_id": "0018",
+      "visual": "Split screen interface with Main Menu window and UI window, multiple buttons",
+      "context": "Advanced UI demonstration"
+    }
+  ],
+  "visual_summary": "Kiro CLI demo showing progression from introduction to terminal/code editing to task management interface with multiple tabs and status tracking",
+  "key_features_shown": [
+    "Terminal/CLI interface",
+    "Task management system", 
+    "Multi-tab workflow",
+    "Status tracking (completed/failed/in progress)",
+    "File operations (adding, deleting, revising)",
+    "Project compilation"
+  ]
+}

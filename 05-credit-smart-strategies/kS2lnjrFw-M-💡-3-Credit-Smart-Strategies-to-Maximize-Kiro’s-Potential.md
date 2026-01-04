@@ -1,0 +1,70 @@
+# 💡 3 Credit-Smart Strategies to Maximize Kiro’s Potential
+
+**Video:** https://youtu.be/kS2lnjrFw-M?si=XgoQBhJjJme1SNf9
+**Platform:** YouTube
+**Channel:** Kiro
+**Video ID:** kS2lnjrFw-M
+**Duration:** 00:05:07
+**Published:** 2025-10-27
+
+---
+
+## Transcript
+
+Today I'm going to show you some tips on how to use Kuro and at the same time save some credits.
+I have a weather mcp server application open here and let me show you around some of the things
+you can do in the latest version of Kuro. First we have this new auto mode at the bottom.
+So this actually saves credits versus choosing Claude Sonnet. We really feel like this is the best
+model to use if you're just starting out unless you have a very specific use case.
+So I would definitely leave it on auto. Next if you go and click on the little Kuro icon in the
+left hand side you have some options for spec agent hooks agent steering and mcp servers.
+So what I always like to do in any project that I'm in I always like to click the generate steering
+docs so it goes through your application and create some detail docs about it. This will then be added
+into your context later so that way your Kuro knows more about your application.
+So it's done creating the steering docs. One thing I like to do is add additional rules.
+So one thing I did here is I created an mcp server. I added mcp server configuration for context
+7. That's a great mcp server that can grab documentation. I'd also take a look at some
+our AWS documentation mcp servers too. But what I want to do is any time I'm creating new specs
+or creating things I want to make sure it uses context 7 or maybe even something with our hooks.
+So I'll click the plus arrow here next to agent steering. I'll call this mcp server info.
+And then from here I can add additional rules. So I'm going to say always use
+context 7 whenever using agents or specs.
+And now whenever I use my spectrum and development or using hooks it'll automatically use
+the mcp server. So I'll actually have better information while it's creating the specs for me.
+I can also click this refine button here and what this will do is it'll look at this
+rules file and it'll add some more context to it. You can see here it added additional requirements
+refinements and I can make changes to this as I need. Now let's take a look at the spec mode and see
+if we can make some improvements to that to save some credits. So I'm going to give it a prompt
+add a new weather agent system mcp server to go along with the agent. We're going to create
+mcp server and we're going to use an mcp server to help create a better mcp server. It should work out. Let's
+write up. So you can see here during the design phase it's actually calling the context 7
+server mcp server to grab some more documentation so it knows how to create this design the correct way.
+Which is really awesome. You can see here this is what it created. It has a mermaid diagram.
+Should pretty pretty accurate to what we need. We're going to move on to the last phase.
+Now a brand new feature was .30 of kiro is now it asks you if you like to have the tests be
+included or to mark the tests as optional. So this is a nice way to reduce the amount of credits
+you're going to use because if you don't create tests obviously you won't have to worry about that.
+I always recommend to for people to go through this list and make additional changes to
+delete things you don't want. You can always click that update task button at any time or go back
+to design your requirements to kind of consolidate or change it. But I like this. I'm going to say yes.
+I want to mark the unit tests as optional. Let me show you what that looks like.
+All right. So here's the task list and if we scroll down it we'll see some tasks, some tests,
+that are marked as optional. So for example right here at the bottom right comprehensive test
+it's marked as optional. I can always mark it as required if I want by clicking this button.
+Now since we have this task list one thing I like to do is be very specific a good tip when
+you're going through this is you can either click on each start task to go through it or I like
+to tell kiro exactly what I want. So I'll say please start at task one and end at task 2.1.
+And that way I'm very explicit and I tell it exactly what it wants and by the way I do use
+please and thank you when I talk to agents because I just like to be polite.
+And you can see here now it's starting to start with task one sending at the project
+structure and core mcp server foundations and you can see it's in progress and I know it's going to
+stop at 2.1. So I hope these tips are helpful for you. One other thing you might want to try is
+with the mcp servers I just use context 7 but you could maybe have one connected to your project
+management system so you could help grab information from it to be retrieved to be put into the
+requirements and design documents to actually make it even quicker to go through this process.
+Also make sure you check out the description to find out more information. Thanks.
+
+
+---
+
+*Transcribed using OpenAI Whisper (model: tiny)*

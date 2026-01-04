@@ -1,0 +1,30 @@
+{
+  "video_id": "M46PSAXpMfA",
+  "title": "Kiro Powers: Empower your AI Agents with Specialized Expertise",
+  "url": "https://youtu.be/M46PSAXpMfA?si=ggbVFDLGDyF8OLA_",
+  "duration": "1:52",
+  "processing_status": "completed",
+  "trace_log": [
+    "🔍 TRACE: Starting video processing pipeline for M46PSAXpMfA",
+    "🔍 TRACE: Video metadata extracted - Title: 'Kiro Powers: Empower your AI Agents with Specialized Expertise', Duration: 112s (1:52)",
+    "🔍 TRACE: Audio transcription completed in 27s - 214 words extracted",
+    "🔍 TRACE: Visual frame extraction completed - 1 key frame extracted",
+    "🔍 TRACE: Visual analysis completed - File explorer interface with folders identified",
+    "🔍 TRACE: Creating unified accessible transcript with audio + visual correlation",
+    "🔍 TRACE: Processing completed successfully"
+  ],
+  "outputs": {
+    "audio_transcript": "M46PSAXpMfA-Kiro-Powers-Empower-your-AI-Agents-with-Specialized-Expertise.txt",
+    "frames_extracted": 8,
+    "frames_directory": "frames_detailed/",
+    "unified_accessible": "M46PSAXpMfA-UNIFIED-ACCESSIBLE.md"
+  },
+  "accessibility_features": [
+    "Complete audio transcript for deaf/hard of hearing users",
+    "Visual element descriptions for blind/low vision users", 
+    "Sequential step organization for cognitive accessibility",
+    "Technical terminology explanations"
+  ],
+  "processing_time": "~30s",
+  "timestamp": "2026-01-03T15:02:00Z"
+}

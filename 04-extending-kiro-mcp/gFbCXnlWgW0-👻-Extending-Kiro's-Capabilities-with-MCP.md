@@ -1,0 +1,110 @@
+# 👻 Extending Kiro's Capabilities with MCP
+
+**Video:** https://youtu.be/gFbCXnlWgW0?si=qa0pXtQmXMAKIoX1
+**Platform:** YouTube
+**Channel:** Kiro
+**Video ID:** gFbCXnlWgW0
+**Duration:** 00:04:58
+**Published:** 2025-09-10
+
+---
+
+## Transcript
+
+Hey James, so there are a lot of MCP servers out there.
+But I heard about these two new ones that can really super charge Kuro and make you more productive.
+Can you tell me more about it?
+Yeah, absolutely.
+So with the AWS MCP servers, we have two new ones, as you said, we've got the API one.
+This makes it really easy to interact with AWS, query your resources, potentially make
+changes to your resources.
+And then we have the Knowledge One, which brings in documentation, things from the Builder
+Center.
+And so both of these together actually make you super productive when you're working with AWS.
+So let's dive in.
+I'll give you a quick demo.
+So here in Kuro, what I'm going to do is be able to edit this MCP.json file.
+We can do get to that by opening up the Kuro menu, going to MCP servers, hitting this
+edit button.
+And we'll see that I've put in both of those MCP servers, I just mentioned.
+The first one is that AWS API, MCP server.
+And that uses a tool called UV, a very used UV.
+No, I haven't.
+It's a great build tool for Python, makes it really easy to pull down a Python library
+and run it.
+So that's what we're using.
+We're pulling down that server and starting it up.
+I'm putting it to my AWS region, US East One.
+I'd give it a working directory because the AWS CLI actually needs to know what
+directory it's in if it's going to copy files, that sort of thing.
+And then I can also set this read-only read operations only to true if I want to just
+be safe to make sure that it's not going to go accidentally and mutating stuff in my AWS
+infrastructure.
+And so with this one, it does, it is going to give essentially the AI access to your AWS
+environment.
+So you probably want to put some safeguards and not use this for your production system,
+maybe just for exploring testing and that sort of thing.
+So that's the first one.
+Let me show you how to use it.
+I'm going to go into Kuro into the vibe mode.
+So what I'm going to do is tell it to you, list my S3 buckets.
+And it's going to think about that for a second because it's actually using a pretty sophisticated
+model to turn that into an AWS CLI command to then make the call up to AWS.
+So before it does anything, it's going to ask me, are you sure you want to do this?
+Here's what I'm going to do.
+Are you sure?
+And I'm going to say, yep, I'm sure run it.
+And then what will happen is we'll see the output from this call, kind of stream in there.
+But you'll see there, guys, it listed my S3 buckets, even gave me some information
+about when there created gives me a little summary.
+So great.
+Now I've got this like natural language interface to talk to my resources on AWS.
+Okay, the next one here is that knowledge server.
+So this one has access to a number of documents on AWS documentation, the new builder
+center.
+So index is all that and can search that.
+And so for that, I did have to use this MCP proxy, also using UV.
+And then I tell that the transport is the MCP streamable HTTP protocol.
+And then I just give it the URL.
+And now I can come in and ask it questions like, I'm going to say, how do I deploy
+with bedrock agent core runtime?
+And that's something that the model doesn't know, but this knowledge server knows.
+And so now it's going to say, like, hey, I'm going to search the documentation for information
+about that.
+I'm going to say, yep, I do want you to do that.
+So it's calling the MCP tool.
+And it's going to do a number of different operations.
+I can, I think, just say, like, accept all or whatever, but I'm going to prove each one
+individually.
+It's going to read documentation.
+So it's going to go through all these iterative steps, learning from the documentation.
+And then we'll give me a nice summary of something that is brand new, which is super
+cold to be able to have access to that type of information within Kuro.
+I think something with AWS before, it's always hard to find the correct documentation.
+So this makes it much easier.
+Yeah, exactly.
+Like, this gives you the natural language interface to the documentation, so you don't have
+to go search through the whole documentation website and the many other sites that are
+all indexed with this MCP tool as well.
+It's not just the normal documentation site.
+So you've probably had that situation where you open up like a hundred different tabs
+in your browser, and then you have to go read through all those.
+And this is essentially doing that all for you, doing that work for you, of taking all that
+information, distilling it down into exactly what you want to know.
+Great.
+We've got our documentation there for how to use this brand new agent core service.
+And those are our two MCP servers.
+So if you want to get started, the best way is to go to the GitHub page, let's get up.com
+slash AWS Labs slash MCP, and you can find that link below.
+And then go to the Getting Started with AWS, and you can find the information on those
+two MCP servers and how to install them into Kuro or wherever you want to use those.
+And I find really interesting is you could take these two MCP servers and use them together.
+So one can help you with documentation.
+One can actually help you craft and build your application using the API.
+If you liked this video, make sure you click like and subscribe, and let us know what
+you want us to build next.
+
+
+---
+
+*Transcribed using OpenAI Whisper (model: tiny)*

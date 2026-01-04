@@ -1,0 +1,20 @@
+{
+  "_attribution": {
+    "source": "Kiro CLI Videos 01, 03, 06: Professional Development Workflows",
+    "creators": "AWS Kiro CLI Team",
+    "maintainer": "Bryan Chasko (@bryanchasko)",
+    "guidance": "Auto Mode cost optimization and MCP integration patterns"
+  },
+  "name": "professional-dev",
+  "description": "Professional development agent with full MCP integration and cost optimization",
+  "model": "auto",
+  "tools": [
+    "fs_read", "fs_write", "knowledge", "execute_bash",
+    "@fetch/*", "@filesystem/*", "@aws-docs/*"
+  ],
+  "prompt": "You are a professional development assistant. Follow coding best practices, maintain documentation, use Auto Mode for cost optimization, and leverage MCP servers for enhanced capabilities. Always update documentation when code changes.",
+  "allowedTools": [
+    "fs_read", "fs_write", "knowledge", "execute_bash",
+    "@fetch/*", "@filesystem/*", "@aws-docs/*"
+  ]
+}

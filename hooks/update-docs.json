@@ -1,0 +1,15 @@
+{
+  "_attribution": {
+    "source": "Kiro CLI Video 08: Automate Code and Documentation with Hooks",
+    "creators": "AWS Kiro CLI Team",
+    "speaker": "Girish (Cloud with Girish channel - AWS Community Builder)",
+    "video_url": "https://youtu.be/KtcPB8x6HU0",
+    "maintainer": "Bryan Chasko (@bryanchasko)",
+    "guidance": "Professional automation patterns for documentation updates"
+  },
+  "name": "update-documentation",
+  "description": "Auto-update README when code changes",
+  "trigger": "file_saved",
+  "pattern": "**/*.{js,py,ts,go,rs}",
+  "instruction": "Review code changes and update README.md with current functionality, usage examples, and API documentation"
+}

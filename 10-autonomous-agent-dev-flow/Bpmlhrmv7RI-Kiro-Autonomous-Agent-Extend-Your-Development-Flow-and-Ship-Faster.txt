@@ -1,0 +1,38 @@
+---
+Video: Kiro Autonomous Agent: Extend Your Development Flow and Ship Faster
+Video ID: Bpmlhrmv7RI
+URL: https://youtu.be/Bpmlhrmv7RI
+Duration: 2:36
+Creator: AWS Kiro CLI Team
+Platform: YouTube
+Transcribed using: OpenAI Whisper
+---
+
+You're already using the power of AI in your development environment but most AI coding tools only work while you're actively in a session.
+The moment you switch tasks or pick up long running work, everything slows down.
+You end up rebuilding context, piecing together information across branches, PRs and endless chat threads.
+Essentially, you become the thread holding everything together, manually coordinating changes across repositories and managing context alone.
+What if your AI agent could step outside the coding session, operating independently to keep work moving?
+So you can stay locked in on real priorities.
+Introducing Kiro Autonomous Agent, a frontier agent that takes on development tasks asynchronously in the background.
+It keeps context alive across sessions and repositories and learns from every interaction.
+Kiro helps you ship faster while staying focused on high impact problem solving and innovations.
+Picture this, an issue pops up right before an important call.
+Instead of waiting until later, you just handed off to Kiro Autonomous Agent.
+Kiro taps into your GitHub repositories, builds a plan and informs you before diving in.
+Then it gets to work in its own sandbox, cloning repose, creating branches, verifying changes, and making smart decisions, all quietly in the background.
+When it's finished, Kiro submits its work for your review.
+It even supports multiple tasks in parallel, so you're never waiting on one to finish before the next begins.
+Take something like implementing a new feature to add a feedback loop for AI suggestions in your application.
+That's not a quick fix.
+It's a coordinated update across multiple repositories.
+In Kiro.dev, you can simply describe the task in natural language to get started.
+While you're gone, it keeps working.
+So when you return, you're not starting it ready to code.
+You're starting at ready to review.
+It provides clear documentation, tests, and works with you to polish the final details.
+The result, a new feature built and ready to deploy.
+Kiro Autonomous Agent, the agent that extends your flow, takes on development tasks in the background,
+carrying context across sessions and repose, learning from every interaction.
+So you can focus on what really matters.
+Get started today.
