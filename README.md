@@ -9,11 +9,12 @@ Based on guidance from 10 processed Kiro tutorial videos, this repository provid
 **License**: MIT License
 
 ## Speakers Referenced
-- **Derek** - AWS Developer Agents and Experiences Team (AWS re:Invent 2025 presentation)
-- **Kieran** - AWS Developer Agents and Experiences Team (AWS re:Invent 2025 presentation)  
+- **Derek and Kieran** - AWS Developer Agents and Experiences Team (AWS re:Invent 2025 presentation DVT321)
 - **Girish** - AWS Community Builder, Cloud Tech Evangelist (Cloud with Girish YouTube channel)
 - **Jack Carrington** - YouTube Creator (Blue Collar Coder channel), TanStack Team Member
-- **Darko Mesaros** - Stack Overflow (Interviewer in Jack Carrington interview)  
+- **Darko Mesaros** - Stack Overflow (Interviewer in Jack Carrington interview)
+
+*Note: Full names and titles are based on information available in video transcripts and public sources. Some speakers may have additional credentials not captured in the available materials.*  
 
 ## Related Projects
 **Video Transcription Implementation**: For the complete technical implementation of our video processing agent that analyzed these tutorials, see [kiro-cli-custom-agent-screenpal-video-transcription](https://github.com/BryanChasko/kiro-cli-custom-agent-screenpal-video-transcription)
