@@ -3,7 +3,7 @@ Video: Build with Custom AI Agents in Terminal | Kiro CLI Full Demo
 Video ID: HI_qexVlU2Y
 URL: https://youtu.be/HI_qexVlU2Y
 Duration: 38:01
-Creator: AWS Kiro CLI Team (Individual speaker not identified in transcript)
+Creator: AWS (Official promotional video)
 Platform: YouTube
 ---
 

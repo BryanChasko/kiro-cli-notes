@@ -3,7 +3,7 @@ Video: Kiro Autonomous Agent: Extend Your Development Flow and Ship Faster
 Video ID: Bpmlhrmv7RI
 URL: https://youtu.be/Bpmlhrmv7RI
 Duration: 2:36
-Creator: AWS Kiro CLI Team (Individual speaker not identified in transcript)
+Creator: AWS (Official promotional video for Kiro Autonomous Agent)
 Platform: YouTube
 ---
 
