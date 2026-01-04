@@ -3,7 +3,7 @@ Video: 👻 Extending Kiro's Capabilities with MCP
 Video ID: gFbCXnlWgW0
 URL: https://youtu.be/gFbCXnlWgW0
 Duration: 4:58
-Creator: AWS Kiro CLI Team
+Creator: AWS Kiro CLI Team (Individual speaker not identified in transcript)
 Platform: YouTube
 ---
 

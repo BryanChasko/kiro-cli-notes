@@ -3,7 +3,7 @@ Video: Agentic Coding with AWS Kiro: From Vibe to Specs
 Video ID: yMMYtcd-Q8o
 URL: https://youtu.be/yMMYtcd-Q8o
 Duration: 43:04
-Creator: AWS Kiro CLI Team
+Creator: Girish (Cloud with Girish YouTube channel)
 Platform: YouTube
 Note: Transcription quality issues detected
 ---

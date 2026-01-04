@@ -3,7 +3,7 @@ Video: AWS re:Invent 2025 - Accelerate multi-step SDLC with Kiro (DVT321)
 Video ID: eLyFTbVtY64
 URL: https://youtu.be/eLyFTbVtY64
 Duration: 60:28
-Creator: AWS Kiro CLI Team
+Creator: Derek and Kieran (AWS Developer Agents and Experiences Team)
 Speakers: Derek and Kieran
 Platform: YouTube
 Event: AWS re:Invent 2025

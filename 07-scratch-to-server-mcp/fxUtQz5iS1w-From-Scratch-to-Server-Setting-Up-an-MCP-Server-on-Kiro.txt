@@ -3,7 +3,7 @@ Video: From Scratch to Server: Setting Up an MCP Server on Kiro
 Video ID: fxUtQz5iS1w
 URL: https://youtu.be/fxUtQz5iS1w
 Duration: 13:53
-Creator: AWS Kiro CLI Team
+Creator: AWS Kiro CLI Team (Individual speaker not identified in transcript)
 Platform: YouTube
 ---
 

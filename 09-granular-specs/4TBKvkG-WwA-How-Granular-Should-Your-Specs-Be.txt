@@ -3,7 +3,7 @@ Video: How Granular Should Your Specs Be?
 Video ID: 4TBKvkG-WwA
 URL: https://youtu.be/4TBKvkG-WwA
 Duration: 29:24
-Creator: AWS Kiro CLI Team
+Creator: Jack Carrington (Blue Collar Coder YouTube channel)
 Speakers: Interview with Jack
 Platform: YouTube
 ---
