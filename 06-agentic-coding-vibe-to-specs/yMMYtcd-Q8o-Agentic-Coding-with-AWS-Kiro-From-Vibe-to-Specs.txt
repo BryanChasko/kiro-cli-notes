@@ -6,7 +6,6 @@ Duration: 43:04
 Creator: AWS Kiro CLI Team
 Platform: YouTube
 Note: Transcription quality issues detected
-Transcribed using: OpenAI Whisper
 ---
 
 Qan 2020

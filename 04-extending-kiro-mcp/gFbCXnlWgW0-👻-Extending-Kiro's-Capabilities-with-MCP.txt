@@ -5,7 +5,6 @@ URL: https://youtu.be/gFbCXnlWgW0
 Duration: 4:58
 Creator: AWS Kiro CLI Team
 Platform: YouTube
-Transcribed using: OpenAI Whisper
 ---
 
 Hey James, so there are a lot of MCP servers out there.

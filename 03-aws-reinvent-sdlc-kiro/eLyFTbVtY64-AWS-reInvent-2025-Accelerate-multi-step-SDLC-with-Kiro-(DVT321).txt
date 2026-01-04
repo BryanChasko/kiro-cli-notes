@@ -7,7 +7,6 @@ Creator: AWS Kiro CLI Team
 Speakers: Derek and Kieran
 Platform: YouTube
 Event: AWS re:Invent 2025
-Transcribed using: OpenAI Whisper
 ---
 
 So, hi everyone, welcome to Accelerate Multi-Step SDLC with Kiro.

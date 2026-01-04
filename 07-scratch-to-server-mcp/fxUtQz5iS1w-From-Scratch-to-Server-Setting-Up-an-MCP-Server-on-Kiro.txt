@@ -5,7 +5,6 @@ URL: https://youtu.be/fxUtQz5iS1w
 Duration: 13:53
 Creator: AWS Kiro CLI Team
 Platform: YouTube
-Transcribed using: OpenAI Whisper
 ---
 
 M, C, P, the model context protocol.

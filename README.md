@@ -4,10 +4,15 @@ Based on guidance from 10 processed Kiro tutorial videos, this repository provid
 
 ## Attribution
 **Content Source**: Analysis of 10 Kiro CLI tutorial videos  
-**Original Creators**: AWS Kiro CLI Team, Cloud With Girish (Girish - AWS Community Builder)  
 **Video URLs**: See individual video directories for specific attributions  
 **Repository Maintainer**: Bryan Chasko (@bryanchasko)  
-**License**: MIT License  
+**License**: MIT License
+
+## Speakers Referenced
+- **Derek** - AWS Developer Agents and Experiences Team (AWS re:Invent 2025 presentation)
+- **Kieran** - AWS Developer Agents and Experiences Team (AWS re:Invent 2025 presentation)  
+- **Girish** - AWS Community Builder, Cloud Tech Evangelist (Cloud with Girish YouTube channel)
+- **Jack Carrington** - YouTube Creator (Blue Collar Coder channel), TanStack Team Member  
 
 ## Related Projects
 **Video Transcription Implementation**: For the complete technical implementation of our video processing agent that analyzed these tutorials, see [kiro-cli-custom-agent-screenpal-video-transcription](https://github.com/BryanChasko/kiro-cli-custom-agent-screenpal-video-transcription)

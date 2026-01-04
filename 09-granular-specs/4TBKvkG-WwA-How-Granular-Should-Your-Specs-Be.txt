@@ -6,7 +6,6 @@ Duration: 29:24
 Creator: AWS Kiro CLI Team
 Speakers: Interview with Jack
 Platform: YouTube
-Transcribed using: OpenAI Whisper
 ---
 
 Today, I'm joined by Jack and Jack is going to talk to me about him using coding assistance,

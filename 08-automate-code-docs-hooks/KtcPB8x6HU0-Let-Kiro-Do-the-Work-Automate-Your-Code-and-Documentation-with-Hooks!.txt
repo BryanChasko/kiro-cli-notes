@@ -7,7 +7,6 @@ Creator: Girish (Cloud with Girish channel)
 Speaker: Girish - AWS Community Builder
 Platform: YouTube
 Published: 2025-11-02
-Transcribed using: OpenAI Whisper (model: tiny)
 ---
 
 Hi, welcome to my channel Cloud with Grish.

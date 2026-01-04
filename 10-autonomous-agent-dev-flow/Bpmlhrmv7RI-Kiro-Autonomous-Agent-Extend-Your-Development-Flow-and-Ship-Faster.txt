@@ -5,7 +5,6 @@ URL: https://youtu.be/Bpmlhrmv7RI
 Duration: 2:36
 Creator: AWS Kiro CLI Team
 Platform: YouTube
-Transcribed using: OpenAI Whisper
 ---
 
 You're already using the power of AI in your development environment but most AI coding tools only work while you're actively in a session.

@@ -5,7 +5,6 @@ URL: https://youtu.be/M46PSAXpMfA
 Duration: 1:52
 Creator: AWS Kiro CLI Team
 Platform: YouTube
-Transcribed using: OpenAI Whisper
 ---
 
 To tackle specialized dev and deployment use cases,
