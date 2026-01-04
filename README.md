@@ -12,7 +12,8 @@ Based on guidance from 10 processed Kiro tutorial videos, this repository provid
 - **Derek** - AWS Developer Agents and Experiences Team (AWS re:Invent 2025 presentation)
 - **Kieran** - AWS Developer Agents and Experiences Team (AWS re:Invent 2025 presentation)  
 - **Girish** - AWS Community Builder, Cloud Tech Evangelist (Cloud with Girish YouTube channel)
-- **Jack Carrington** - YouTube Creator (Blue Collar Coder channel), TanStack Team Member  
+- **Jack Carrington** - YouTube Creator (Blue Collar Coder channel), TanStack Team Member
+- **Darko Mesaros** - Stack Overflow (Interviewer in Jack Carrington interview)  
 
 ## Related Projects
 **Video Transcription Implementation**: For the complete technical implementation of our video processing agent that analyzed these tutorials, see [kiro-cli-custom-agent-screenpal-video-transcription](https://github.com/BryanChasko/kiro-cli-custom-agent-screenpal-video-transcription)

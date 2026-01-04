@@ -3,8 +3,8 @@ Video: How Granular Should Your Specs Be?
 Video ID: 4TBKvkG-WwA
 URL: https://youtu.be/4TBKvkG-WwA
 Duration: 29:24
-Creator: Jack Carrington (Blue Collar Coder YouTube channel)
-Speakers: Interview with Jack
+Creator: Darko Mesaros (Stack Overflow) interviewing Jack Carrington
+Speakers: Darko Mesaros and Jack Carrington
 Platform: YouTube
 ---
 
