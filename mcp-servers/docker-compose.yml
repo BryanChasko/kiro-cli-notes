@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  pdf-mcp:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./pdf-mcp:/app
+      - ../video-content:/data
+    ports:
+      - "3001:3000"
+    command: npm start
+
+  markdown-mcp:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./markdown-mcp:/app
+      - ../video-content:/data
+    ports:
+      - "3002:3000"
+    command: npm start
+
+  json-schema-mcp:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./json-schema-mcp:/app
+      - ../video-content:/data
+    ports:
+      - "3003:3000"
+    command: npm start
+
+  search-mcp:
+    image: ollama/ollama:latest
+    volumes:
+      - ./search-mcp:/app
+      - ../video-content:/data
+    ports:
+      - "3004:3000"
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+
+  knowledge-graph-mcp:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./knowledge-graph-mcp:/app
+      - ../video-content:/data
+    ports:
+      - "3005:3000"
+    command: npm start
+
+  text-to-speech-mcp:
+    image: node:18-alpine
+    working_dir: /app
+    volumes:
+      - ./text-to-speech-mcp:/app
+      - ../video-content:/data
+    ports:
+      - "3006:3000"
+    command: npm start

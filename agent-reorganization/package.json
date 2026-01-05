@@ -1,0 +1,15 @@
+{
+  "name": "kiro-agent-monitoring",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest",
+    "agents:list": "ls -la ~/.kiro/agents/",
+    "agents:validate": "node validate-agents.js"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.7.0"
+  }
+}

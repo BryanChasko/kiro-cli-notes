@@ -1,0 +1,204 @@
+{
+  "_attribution": {
+    "source": "Kiro CLI Agent Reorganization - Enhanced MCP Configuration",
+    "creators": "AWS Kiro CLI Team + Agent Reorganization Project",
+    "maintainer": "Bryan Chasko (@bryanchasko)",
+    "guidance": "Comprehensive MCP server distribution with OpenTelemetry monitoring"
+  },
+  "mcpServers": {
+    "_comment": "=== ESSENTIAL BASELINE (ALL AGENTS) ===",
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"],
+      "disabled": false,
+      "autoApprove": ["fetch"],
+      "otelInstrumentation": true
+    },
+    "filesystem": {
+      "command": "npx", 
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."],
+      "autoApprove": ["read_file", "list_directory", "get_file_info"],
+      "otelInstrumentation": true
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "run", "-i", "--rm", "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server:latest"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "$(aws ssm get-parameter --name '/kiro/github/sso-token' --with-decryption --query 'Parameter.Value' --output text)"
+      },
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "aws-docs": {
+      "command": "uvx",
+      "args": ["awslabs.aws-documentation-mcp-server@latest"],
+      "env": {"FASTMCP_LOG_LEVEL": "ERROR"},
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+
+    "_comment2": "=== KNOWLEDGE BASE SERVERS ===",
+    "knowledge-base-observability": {
+      "command": "node",
+      "args": ["knowledge-base/mcp-server/build/index.js"],
+      "env": {
+        "EMBEDDING_PROVIDER": "ollama",
+        "OLLAMA_BASE_URL": "http://localhost:11434",
+        "OLLAMA_MODEL": "nomic-embed-text",
+        "KNOWLEDGE_BASES_ROOT_DIR": "knowledge-base/knowledge-bases/observability"
+      },
+      "autoApprove": ["list_knowledge_bases", "retrieve_knowledge"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "knowledge-base-content": {
+      "command": "node", 
+      "args": ["knowledge-base/mcp-server/build/index.js"],
+      "env": {
+        "EMBEDDING_PROVIDER": "ollama",
+        "OLLAMA_BASE_URL": "http://localhost:11434",
+        "OLLAMA_MODEL": "nomic-embed-text", 
+        "KNOWLEDGE_BASES_ROOT_DIR": "knowledge-base/knowledge-bases/content"
+      },
+      "autoApprove": ["list_knowledge_bases", "retrieve_knowledge"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "knowledge-base-engineering": {
+      "command": "node",
+      "args": ["knowledge-base/mcp-server/build/index.js"],
+      "env": {
+        "EMBEDDING_PROVIDER": "ollama",
+        "OLLAMA_BASE_URL": "http://localhost:11434",
+        "OLLAMA_MODEL": "nomic-embed-text",
+        "KNOWLEDGE_BASES_ROOT_DIR": "knowledge-base/knowledge-bases/engineering"
+      },
+      "autoApprove": ["list_knowledge_bases", "retrieve_knowledge"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "knowledge-base-analysis": {
+      "command": "node",
+      "args": ["knowledge-base/mcp-server/build/index.js"],
+      "env": {
+        "EMBEDDING_PROVIDER": "ollama",
+        "OLLAMA_BASE_URL": "http://localhost:11434",
+        "OLLAMA_MODEL": "nomic-embed-text",
+        "KNOWLEDGE_BASES_ROOT_DIR": "knowledge-base/knowledge-bases/analysis"
+      },
+      "autoApprove": ["list_knowledge_bases", "retrieve_knowledge"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+
+    "_comment3": "=== OBSERVABILITY MCPS ===",
+    "otel-mcp": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-p", "4317:4317", "otel/opentelemetry-collector-contrib:latest"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "prometheus-mcp": {
+      "command": "docker", 
+      "args": ["run", "-i", "--rm", "-p", "9090:9090", "prom/prometheus:latest"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "jaeger-mcp": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-p", "16686:16686", "jaegertracing/all-in-one:latest"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "lighthouse-mcp": {
+      "command": "npx",
+      "args": ["-y", "@lighthouse-mcp/server"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+
+    "_comment4": "=== CONTENT & COMMUNICATION MCPS ===",
+    "grammarly-mcp": {
+      "command": "npx",
+      "args": ["-y", "@grammarly-mcp/server"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "readability-mcp": {
+      "command": "npx",
+      "args": ["-y", "@readability-mcp/server"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "miro-mcp": {
+      "command": "npx",
+      "args": ["-y", "@miro-mcp/server"],
+      "env": {"MIRO_API_TOKEN": "$(aws ssm get-parameter --name '/kiro/miro/token' --with-decryption --query 'Parameter.Value' --output text)"},
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "figma-mcp": {
+      "command": "npx",
+      "args": ["-y", "@figma-mcp/server"],
+      "env": {"FIGMA_API_TOKEN": "$(aws ssm get-parameter --name '/kiro/figma/token' --with-decryption --query 'Parameter.Value' --output text)"},
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+
+    "_comment5": "=== ENGINEERING MCPS ===",
+    "sonarqube-mcp": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-p", "9000:9000", "sonarqube:community"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "ast-mcp": {
+      "command": "npx",
+      "args": ["-y", "@ast-mcp/server"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "storybook-mcp": {
+      "command": "npx",
+      "args": ["-y", "@storybook-mcp/server"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "docker-mcp": {
+      "command": "npx",
+      "args": ["-y", "@docker-mcp/server"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+
+    "_comment6": "=== ANALYSIS MCPS ===",
+    "jupyter-mcp": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "-p", "8888:8888", "jupyter/scipy-notebook"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "pandas-mcp": {
+      "command": "npx",
+      "args": ["-y", "@pandas-mcp/server"],
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "snyk-mcp": {
+      "command": "npx",
+      "args": ["-y", "@snyk-mcp/server"],
+      "env": {"SNYK_TOKEN": "$(aws ssm get-parameter --name '/kiro/snyk/token' --with-decryption --query 'Parameter.Value' --output text)"},
+      "disabled": false,
+      "otelInstrumentation": true
+    },
+    "semgrep-mcp": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "returntocorp/semgrep:latest"],
+      "disabled": false,
+      "otelInstrumentation": true
+    }
+  }
+}
