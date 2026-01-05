@@ -1,0 +1,126 @@
+name: Update Knowledge Base
+
+on:
+  push:
+    paths:
+      - 'docs/**'
+      - 'video-content/**'
+      - 'steering/**'
+      - 'workflows/**'
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6 AM UTC
+  workflow_dispatch:
+
+jobs:
+  update-knowledge-base:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Setup Ollama
+      run: |
+        echo "🔍 [TRACE] Started: ollama_setup"
+        curl -fsSL https://ollama.ai/install.sh | sh
+        ollama serve &
+        sleep 10
+        echo "📊 [EVENT] ollama_setup: pulling_model"
+        ollama pull nomic-embed-text
+        echo "✅ [TRACE] ollama_setup: success"
+        
+    - name: Install Dependencies
+      run: |
+        echo "🔍 [TRACE] Started: dependency_installation"
+        cd ~/mcp/knowledge-base-mcp-server
+        npm install
+        npm run build
+        echo "📊 [EVENT] dependency_installation: mcp_server_built"
+        
+        cd ../export-pipeline
+        npm install
+        echo "✅ [TRACE] dependency_installation: success"
+        
+    - name: Update Knowledge Base
+      run: |
+        echo "🔍 [TRACE] Started: knowledge_base_update"
+        cd knowledge-base/export-pipeline
+        
+        # Export with error handling
+        if node export-knowledge.js; then
+          echo "✅ [EVENT] knowledge_base_update: export_success"
+          
+          # Validate export
+          CHUNK_COUNT=$(jq '.metadata.totalChunks' ../static-site/knowledge.json)
+          echo "📊 [EVENT] knowledge_base_update: validation_success (chunks: $CHUNK_COUNT)"
+          
+          if [ "$CHUNK_COUNT" -lt 10 ]; then
+            echo "❌ [EVENT] knowledge_base_update: validation_failed (insufficient_chunks: $CHUNK_COUNT)"
+            exit 1
+          fi
+        else
+          echo "❌ [TRACE] knowledge_base_update: export_failed"
+          exit 1
+        fi
+        
+    - name: Commit Changes
+      run: |
+        echo "🔍 [TRACE] Started: commit_changes"
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        if git diff --quiet knowledge-base/static-site/knowledge.json; then
+          echo "📊 [EVENT] commit_changes: no_changes_detected"
+        else
+          git add knowledge-base/static-site/knowledge.json
+          git add knowledge-base/static-site/knowledge-summary.txt
+          git commit -m "🤖 Auto-update knowledge base - $(date -u +%Y-%m-%d)"
+          git push
+          echo "✅ [EVENT] commit_changes: changes_committed"
+        fi
+        echo "✅ [TRACE] commit_changes: success"
+        
+    - name: Deploy to Pages
+      uses: actions/deploy-pages@v4
+      with:
+        artifact_name: github-pages
+        
+  notify-on-failure:
+    runs-on: ubuntu-latest
+    needs: update-knowledge-base
+    if: failure()
+    steps:
+    - name: Create Issue on Failure
+      uses: actions/github-script@v7
+      with:
+        script: |
+          console.log('❌ [TRACE] knowledge_base_automation: failed');
+          github.rest.issues.create({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            title: '🚨 Knowledge Base Update Failed',
+            body: `
+            ## Automation Failure Report
+            
+            **Workflow**: Update Knowledge Base
+            **Run ID**: ${{ github.run_id }}
+            **Commit**: ${{ github.sha }}
+            **Timestamp**: ${new Date().toISOString()}
+            
+            ### Trace Information
+            - Trace ID: automation_${Date.now()}
+            - Status: FAILED
+            - Check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.
+            
+            ### Next Steps
+            1. Check Ollama service status
+            2. Verify MCP server build
+            3. Validate knowledge base content
+            4. Review export pipeline logs
+            `,
+            labels: ['automation', 'bug', 'knowledge-base']
+          });

@@ -17,6 +17,18 @@
       "args": ["-y", "@modelcontextprotocol/server-filesystem", "."],
       "autoApprove": ["read_file", "list_directory", "get_file_info"]
     },
+    "knowledge-base": {
+      "command": "node",
+      "args": ["~/mcp/knowledge-base-mcp-server/build/index.js"],
+      "env": {
+        "EMBEDDING_PROVIDER": "ollama",
+        "OLLAMA_BASE_URL": "http://localhost:11434",
+        "OLLAMA_MODEL": "nomic-embed-text",
+        "KNOWLEDGE_BASES_ROOT_DIR": "knowledge-base/knowledge-bases"
+      },
+      "autoApprove": ["list_knowledge_bases", "retrieve_knowledge"],
+      "disabled": false
+    },
     "aws-docs": {
       "command": "uvx",
       "args": ["awslabs.aws-documentation-mcp-server@latest"],

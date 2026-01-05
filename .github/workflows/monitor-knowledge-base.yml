@@ -1,0 +1,58 @@
+name: Monitor Knowledge Base Health
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Validate Knowledge Base
+      run: |
+        echo "🔍 [TRACE] Started: health_check"
+        
+        # Check if knowledge.json exists
+        if [ ! -f "knowledge-base/static-site/knowledge.json" ]; then
+          echo "❌ [EVENT] health_check: missing_knowledge_file"
+          exit 1
+        fi
+        
+        # Validate JSON structure
+        if ! jq empty knowledge-base/static-site/knowledge.json; then
+          echo "❌ [EVENT] health_check: invalid_json"
+          exit 1
+        fi
+        
+        # Check chunk count
+        CHUNK_COUNT=$(jq '.metadata.totalChunks' knowledge-base/static-site/knowledge.json)
+        echo "📊 [EVENT] health_check: chunk_count_validated (chunks: $CHUNK_COUNT)"
+        
+        if [ "$CHUNK_COUNT" -lt 40 ]; then
+          echo "⚠️ [EVENT] health_check: low_chunk_count (chunks: $CHUNK_COUNT)"
+        fi
+        
+        # Check last update time
+        EXPORT_DATE=$(jq -r '.metadata.exportDate' knowledge-base/static-site/knowledge.json)
+        echo "📊 [EVENT] health_check: last_export_date ($EXPORT_DATE)"
+        
+        echo "✅ [TRACE] health_check: success"
+        
+    - name: Test Static Site
+      run: |
+        echo "🔍 [TRACE] Started: static_site_test"
+        cd knowledge-base/static-site
+        
+        # Check required files
+        for file in index.html js/app.js js/search.js js/indexeddb.js css/styles.css; do
+          if [ ! -f "$file" ]; then
+            echo "❌ [EVENT] static_site_test: missing_file ($file)"
+            exit 1
+          fi
+        done
+        
+        echo "✅ [TRACE] static_site_test: success"

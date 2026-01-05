@@ -1,0 +1,986 @@
+---
+category: videos
+tags: ["videos", "tutorials", "examples"]
+source: kiro-cli-knowledge-base
+indexed: 2026-01-04T22:49:42Z
+---
+
+# Agentic Coding with AWS Kiro: From Vibe to Specs
+
+**Video:** https://youtu.be/yMMYtcd-Q8o?si=IvCFA45-rPMciuY5
+**Platform:** YouTube
+**Channel:** Kuan Hoong
+**Video ID:** yMMYtcd-Q8o
+**Duration:** 00:43:04
+**Published:** 2025-12-04
+
+---
+
+## Transcript
+
+Qan 2020
+presidency
+untuk ber первah ettat itu.
+Baik istilah terlihat bahawa
+alasan menggunakan
+untuk memzHe ini negeri
+If you have listened to the top before, so sorry,
+but hopefully this top is actually interesting enough.
+If you're not techie, but you're very interested about AI,
+I think this top is something that you might...
+You might be interested in,
+because it's about wipe coding.
+Has we know that wipe coding now?
+There are two million 2's out there.
+It's probably her, because you took public health,
+level, you're public health, now a new one from Google
+has anti-gravity, then there is so many of these 2's out there.
+And there are all have his own advantages,
+have his own features,
+and then have his own 2's that might be beneficial to you.
+So, at the birth, also has his own
+agedic coding, 2's, which is called Kirok.
+And I would like to introduce it to you today.
+So, I just brief introduction myself.
+You can, am I just one hope?
+You can comic case.
+Actually, I'm working as a data engineering section lead
+in one of pharmaceutical companies.
+So, I'm a Google developer expert, GD,
+machine learning.
+I'm also an AWS community, but the machine learning.
+So, I found the two communities in Malaysia.
+I found that the AI, ML Malaysia use a group.
+And I found that Malaysia is a group.
+And then another batch that I added to myself,
+I found that this AWS AI, ML KL use a group.
+So, like far him say, I'm quite active in LinkedIn.
+Please do connect me in LinkedIn.
+If you have any posts today that you are interested,
+you find this talk is interesting.
+You get tagged me in LinkedIn.
+Like far him say, we want to actually promote
+more about AWS office hosting this event.
+Okay, so this is the agenda for today.
+I'm going to introduce you about Kero.
+And then maybe if you're not familiar with what coding,
+I will give a brief introduction about what is white coding.
+Then I will talk about some of the unique features in Kero.
+Okay, so we have something we know that Kero is white coding tools.
+By Kero also, there's a special unique features
+which is called spec coding.
+Red coding, you probably heard before,
+but what is spec coding?
+So what's the difference between spec coding and what coding?
+Then inside Kero, it has something called steering
+and it has something called hooks.
+So these are the extra features
+that you might not find in any other white coding tools out there.
+Okay, because in any white coding tools nowadays,
+you have to able to connect to MCP.
+So Kero is no different.
+You also can connect to the model context protocol
+that you like to connect to.
+And one of the unique things that Kero has recently introduced
+is Kero CLI.
+That means you also can use Kero,
+not just in the VS Code environment IDE.
+You also can assess Kero through the command line.
+Okay, so of course,
+we any talk, the fun part is about the demo
+and then I will conclude the session.
+Okay, so we know that AI is very great
+to assist in many many things.
+Now AI is also very, very good
+has assistance for coding.
+Okay, so now we are in the Asia of what we call
+agentic coding.
+So agentic coding basically is where the AI
+will drive the software development,
+the AI agent will autonomously
+handle the end-to-end task
+and translate your problem, your problem
+that you've given by the user
+into step-by-step programming steps.
+And you will use the relevant tools
+and do the testing to make sure the code
+that is developed is correct.
+And then you edit the code by itself, okay.
+So sometimes the code just doesn't compile, okay.
+So sometimes you only solve part of the problem.
+So we know that if I would just do what coding,
+I would just give a problem.
+For example, can you develop me a website
+like A, B and B.com, okay?
+How many of you think that one line
+or command will solve will develop anything for you?
+Definitely will fail in that
+because the problem is too generic
+and in a normal software engineering
+if you're a software engineer
+when you want to develop something, what do you do?
+You come up with a specification,
+you come up with a maybe a layout,
+you define what, the technical requirement,
+all the things you probably do before
+you actually start the software development.
+So what coding, okay, if you just give a problem, okay,
+you will not able to understand the actual intent
+and able to develop everything
+and to end without any problem, okay.
+So this is where the spec driven development
+or what we call spec coding will come in, okay.
+So spec coding, okay,
+is actually where you provide a very structured process, okay.
+When you define all the specification
+to your coding agent, workflow,
+we all the tools that you need before
+you start the development, okay.
+So imagine, you tell the agent,
+I want to develop this.
+So the agent will come up with a specification first, okay.
+All the technical specifications,
+the requirement, everything.
+Then you, your user, okay,
+will go through all the specification.
+Make sure it's correct.
+Then you go, then what happened?
+The agent will go in and bring into task by task, okay.
+What you need to do and then you review again,
+the task and make sure all the tasks are currently performed.
+And then the agent also will do the testing.
+Make sure every task that's completed,
+the agent will test, okay.
+The code has performed what is intended to do.
+So that is the whole gis of what we call spec coding
+or spec driven development.
+Okay, so if you have not heard of what coding,
+so what coding, what it means by what coding.
+So some people have said,
+oh, the what coding means I just code with what, okay.
+It's not actually.
+So what coding basically is you, your user,
+just describe what you want to the agent,
+the AI agent by giving a prompt.
+Then the AI agent will understand your intent
+and develop the code, okay.
+And then you, your user will work with the AI agent,
+do all the testing and refine the code
+until the iterative manner
+until you've come with the end
+when you deploy the code.
+So that whole process is called by coding, okay.
+So basically a by coding can be you,
+a user do not need to know the programming code
+in a very detailed manner.
+But you probably know what you want, okay.
+But, and then you just tell to the agent
+and if you work with the AI agent to develop the app, okay.
+Until, and then iterate in the iterative manner
+until that you get the final result, okay.
+So that is why coding.
+So how does why coding work with AI agent, okay.
+Okay.
+So imagine now, they have this task.
+You go to error in the code.
+And then you tell the agent,
+go and find a fixed meter issue.
+This is the error, okay.
+So you tell it to your agentic coding assistant, okay.
+Could be any agent out there.
+Could be GPT, GPT.
+It could be a clock format,
+or it could be a jump line,
+or whichever coding assistant out there.
+And this coding assistant
+will be able to assess your code base.
+So if you are programming,
+you could be many, many different files.
+You have file A, file B, file C, okay.
+So the user will have a task
+that you need to find an error and fix the issue.
+So in Kiro, okay,
+you perform as a coding assistant,
+you have a choice to choose the model.
+So the model available in Kiro is based on clock.
+So you have clock model,
+which is now format,
+format format, okay.
+And then you have the memory,
+the tools and the memory,
+where the memory will remember
+all the previous conversation during the interaction
+with the user.
+And then the tools, for example,
+your NCP tools, or assess to data,
+assess to NCP,
+to those are the tools available to the model, okay.
+So in the AI agent, what you will do, okay.
+First, you will gather the contacts
+of the prompt that's given.
+Then you come up with a specification, okay.
+You come up with a specification.
+And then you break down the specification
+into action.
+And then you will tell your work with a user,
+step, step, step,
+action need to be taken.
+And this process will go in the very iterative manner,
+and at the same time, you're able to assess
+all the programming file that you have available to you
+by the, to the codec assistant.
+Okay.
+So if I mentioned just now,
+in the traditional,
+the software development, okay.
+So in the software development,
+traditional, what do you do, okay.
+So if you are software developer,
+you probably start writing the code.
+After you finish all the code,
+then normally, when you do the deployment,
+that's where you start to have a big headache
+because you need to do documentation, okay.
+So you need to document all the things
+that you have developed, okay.
+So usually, for any software developer,
+to write code is, yes, happy,
+to write document is always a crying phase, okay.
+But with AI agent, okay.
+We are so many AI agent-based code
+as you start out there, okay.
+So they have cloud-based, like codex,
+their web-based,
+you probably have VP or lover-ball or board
+or five-based studio.
+These are all the editor,
+but you do not need to install anything
+and you can actually write code just to your browser.
+Then there's a lot of extension out there
+that you can plug in and put into your IDE,
+your VS code or whatever.
+They're crying, they're rude, they're Gemini,
+they're many, many more.
+Then there's native app, like cursor, wheel serve.
+Then there are things like terminal,
+they can run terminal, your cloud code,
+either Gemini, CLI, now Kiro also come in.
+Here's a native app, which is also a VS code base
+and Kiro also has now the Kiro CLI.
+So you can see in these AI-based code scene
+is quite competitive
+and they're different, different favor out there, okay.
+So what makes Kiro different
+is the approach on the software development,
+which is focus on the, this respect,
+driven spec coding.
+Okay, so we know, this is the command thing in there.
+I say, everybody say, I can be a programmer, okay.
+I do not need to learn no anything.
+I can just give a prompt to the AI agent,
+the AI agent will write everything for me.
+But suddenly, halfway,
+the color error, okay.
+You tell the agent, fix this error for me.
+Then the agent will tell, yeah, I see the error.
+I see now, okay.
+Then I'll fix it for you.
+He go back and look, look, look, look, look, look.
+And then I fix the error already.
+Please check.
+Then he go back and see the same error still there.
+There, you say the error is still there.
+Oh, my mistake, my apology, okay.
+Let me go and fix it again for you.
+Go ahead, fix it, fix it, come back,
+fix it to the, then what you need to do,
+you probably want to flip your table already.
+Okay.
+So this is a common problem with that.
+Because, okay, we start terming in wrong footing.
+Because, we just give a prompt.
+We expect the AI agent to understand everything
+through the end and develop one with one.
+But when we start in the middle,
+then that's where the loop will start breaking down
+and to debug, wipe holding, sometimes
+it's even harder to write your code by yourself.
+Okay, sometimes the error is just one,
+maybe it's just one bracket.
+But then it will take forever to solve it
+because you don't know what you're doing
+and debugging or wipe holding
+can be much more frustrating
+than writing your code by yourself.
+Okay, so there is where we say,
+maybe there's a better way instead of just jumping
+into wipe holding, how about we have another approach
+where we talk about we start with the specification verse.
+We start with the specification
+where we define all the things that we want
+in the specification
+and this specification can be shared
+to our your core programmer, your team,
+this and this specification
+and also can be understood by your AI agent.
+Okay, so if you have a proper specification
+define earlier before you straight jump into your development,
+maybe that can actually resolve
+much of the problem that maybe a curl later
+during your wipe holding.
+Okay, so this is where the spec driven development come in.
+Okay, so you start with the specification
+then from the specification,
+the AI agent will help you to do a plan.
+Okay, you plan out what it needs to do.
+From the plan, the AI agent will help you
+to break it down towards us.
+Okay, then you your user has a user
+who will be called human in the loop.
+Okay, you go to every task
+and make sure the task is performed correctly
+and then do all the tasks thing for every task
+before you move to the next task.
+Okay, so there is the process
+where you do the implementation.
+So, instant driven development, okay,
+you come up with a proper specification
+and then break it down to a plan
+and break it down to task
+then you do the implementation.
+In this manner, okay,
+when you have error, okay,
+the AI agent can go back and look
+what is the task need to be taken.
+What is all you know plan
+and what the specification
+and that can reduce the iterative error message
+that you get probably when during the wipe holding.
+So this is the different, okay,
+if you are doing wipe holding,
+you start with the idea,
+three way you do coding, okay,
+you three way you do coding
+then you do all at all that thing.
+You do all adjustment in between
+then you get a feature complete, okay.
+It looks very nice but usually it's not like that, okay.
+And sometimes you do a lot of iterative debugging
+in this phase here
+that might be very frustrating.
+So in respect driven development,
+you just like any proper software engineering, okay,
+you start with a requirement gathering.
+You have a very specific specification drafting,
+then you reveal the design
+and then you do the implementation
+and in between,
+every task you do a testing
+and you validate before you move to a next task.
+And this whole thing here is where the AI agent
+help you to do, okay,
+compared to just doing just coding itself, okay.
+So this is where Kero come in.
+So the concept is you can have white coding
+and you can have a clarity of specification.
+So Kero help you to bridge these two, okay.
+Where you have a proper specification
+can use the AI agent to do coding
+and that's where Kero help come in.
+Okay, so if you,
+this how a Kero look like,
+basically it's just another IDE VS code IDE lah, okay.
+So just like your cursor,
+just like your wind serve,
+just like a VS code,
+it's actually another variance of VS code.
+But inside here you can see
+there's a unique interface of Kero.
+So this is where you give the problem, okay.
+You have a chat panel here.
+So when you start three away,
+you can start with white coding if you want.
+You can do that.
+Another way is you can choose to do
+start with a specification, okay.
+And this is where you can see the normal VS code interface.
+And here you have the what we call the growth button,
+the Kero button.
+The Kero button later will show you
+you can actually go in and start to create
+the specification that you want.
+So you have a set up bar here,
+you have a editor, you can see the code
+and then you can have for this restart,
+you can choose white coding or spec coding.
+So you can see you have the Kero button
+on the left.
+Once you click the Kero button,
+you can see you can select to create
+or we call a steering file.
+So a steering file basically is where you start
+to create the specification from the beginning, okay.
+So normally in any this agentic coding tools,
+you have something like this.
+You have a model, okay.
+The model will give you plain text direction
+to respond to what you need to use the tools.
+The model for example in Kero will be based on
+on that.
+You will respond to request using the tools
+and then the coding assistant will understand
+what tool needs to be used, okay.
+For example, you the user, okay.
+Tell that I have this code,
+I need to write it to the main.go file.
+So the air agent will understand, okay.
+I need to write a code and the code need to be
+on this main.go file.
+So what he will do,
+he will find the main.go file and read the file, okay.
+Then for what happened,
+then this main.go file will be shown
+to the code assistant and then to the,
+you actually make changes to the file.
+And then once the changes as we made,
+you show back to the user, okay.
+So this where the whole process is done by the AI agent.
+So the model will understand what tools need to be used
+and what file need to be added.
+And then you actually did the file accordingly.
+Okay.
+So the first features in Kero
+is what we call the steering file, okay.
+For it is the steering file.
+So steering file basically is to provide
+a very overall context about your project.
+So Kero, the agent will understand
+your own code base, the convention, the requirement, okay.
+So to get started,
+you just need to go and generate this steering document file
+in the Kero panel.
+The Kero will generate the project steering file
+and store in default.kero slash steering.
+So you actually, once the steering file is generated,
+it actually has three information.
+So what is this product all about?
+What is this purpose of this application
+you try to edit?
+Well, then you can stack,
+what the framework, what the structure and convention, okay.
+So the agent will go and understand
+all your code everything, understand, okay.
+And then see what information they can gather
+and put into what you call the steering file information, okay.
+So this one is for example,
+you take a project from gig hub lah
+or you have a project that given to you by your colleague, okay.
+So before you start doing anything, changes,
+you create a steering file first, okay.
+So the steering file will content
+all these information that is needed.
+So for example, I can create generate steering file.
+So you can see who generate the steering file
+and you can see the steering file with generator
+and store in this side panel here.
+You can see her product, product, you can see,
+product, tech, and structure.
+So what are the products all about?
+What are the tech, tech, technical, youth
+and what is the structural look like, okay.
+So in this product, in the steering file first,
+you have this one because specification.
+So you turn your idea now into a detailed implementation plan, okay.
+Now you help the product generate to align
+okay, what need to be built, okay.
+For example, after you have the steering file generated,
+you can say, oh, maybe I want to create this new button
+or create this new features, okay.
+So now the agent will understand
+from the steering file, the specification now
+that you want to turn into this new idea,
+based on the problem that's given.
+So you say, okay, this is the requirement now,
+what you want to do.
+You break it down, you recommend to a user story, okay.
+If your software, if your software engineering,
+you know that, okay, we need to break it down
+our task into user story.
+This is a Zhao methodology.
+In the user story, we have a clear acceptance criteria.
+Every story, you have acceptance criteria, okay.
+Make sure that every story,
+if it's considered competent,
+there will be a acceptance criteria.
+You have a documentation, design,
+you track the progress and at the same time,
+you can actually communicate, okay,
+with your team members, what have happened.
+So you can see with this cureau, okay.
+If you are into a Zhao,
+if you are working in a team manner,
+you can see all these things are done for you, okay.
+If it's a work coding, you cannot see this, okay.
+So you can see, okay.
+I want to add a new features.
+You give a prompt.
+The end what might happen
+from this aspect coding,
+he will come out with a requirement first, okay.
+Just with a prompt,
+he will come out with a requirement file,
+he will come out with a design file,
+he will come out with a task file, okay.
+So you, you are a user,
+you first go through the requirement.
+If this requirement is,
+you think it's correct, okay.
+Then you accept,
+you go in next,
+you go to next phase,
+you do the design file.
+And then you look at design.
+If everything is correct,
+it's acceptable then from the design file,
+it break it down to many, many tasks.
+Every single task is like a user story.
+And every single task,
+there will be a validation and testing.
+And to make sure that the task is completed correctly,
+all these things will be the action taken by the AI agent.
+So you can see,
+I just give a prompt, okay.
+The aspect coding will come out with this requirement file,
+design file and task file, okay.
+So from there,
+you can see,
+you have the three file that you have,
+the requirement,
+we all the user story,
+we all the acceptance criteria,
+then you break it down to design.
+What are the architecture,
+technical architecture,
+how do I approach this implementation?
+And then from there,
+you very discreet,
+checkable step by step, task, okay.
+So you can see,
+if you are a person who are very particular
+about knowing every single step,
+then you can see this is very good,
+because he track every single task for you.
+And every single task once is completed,
+he will do the internal validation testing with you.
+So you can see,
+okay, you can see the requirement file, okay.
+There are all the requirements,
+it's like, actually amount of downfowler.
+Then from there, you have the design file, okay.
+Then from there, you have a task file, okay.
+So once you have the requirement,
+you approve the requirement,
+then you approve the design,
+then you approve all the tasks,
+then you can actually use the user,
+you can decide, okay.
+Execute task by task, okay.
+So you reveal the task in the task to MD file,
+you execute the task,
+you can say, okay,
+execute task 1 to task 3,
+or execute to task 1.1 to 3.2 something like that.
+So you execute the task,
+every single task, you can track the progress,
+whether it is in progress of done.
+And every single task,
+usually you will have its own testing and validation.
+Get mixture,
+the task is currently executed.
+So you can see,
+you can see the design, the task,
+and every single task you can see is in progress.
+Every single task,
+usually there is a testing, okay.
+You test every single task is done
+before it moves to the next task.
+So if you are tracking this as like a jauh,
+you can see all this is one user story,
+there's another user story,
+you can close it accordingly.
+Okay, so that is about spec coding.
+So you have first,
+you can create a steering file
+to understand about the project.
+Then once you give a problem, okay.
+The key role will come up with three file,
+which is the requirement, the design, and the task, okay.
+Another feature that's inside a key role
+is called hook.
+So the hook basically is actually
+to actually allow you to do some sort of automation, okay.
+For example, if I create a file,
+if I save a file or delete a file,
+I need to document it somewhere.
+You can create that as an automated task, okay.
+Or you have a trigger that's something activated, okay.
+Or you're specifying file that you want to make sure
+that when you're modified,
+you want to follow certain patterns.
+You can automate this inside what we call hooks.
+So for example, here, if I event occur something,
+I want it to write a document file, okay.
+So that is inside the hook.
+So if you have something that repetitively
+that you want to do, okay,
+anyway, to automate it, okay,
+then you can create a hook in key role.
+So you can see when you send a prompt to agent
+or whenever a key role makes the update
+or wherever there's an event occur, okay.
+Then you want to do something,
+you can automate that as a hook in key role.
+Okay.
+The next thing is like I mentioned,
+any other white coding tools out there, okay.
+Definitely you will able to assess
+to more the context protocol MCP.
+And most of the IDE out there is OEDMCP client, okay.
+So you need to just connect to MCP server.
+So with MCP in key role,
+it also allows you to connect to MCP server.
+So you can assess to like specify
+as specialized or knowledge base or documentation.
+You can integrate with external API or services.
+You can connect to the database, okay.
+You also can add any MCP server
+that you have, you want to to cure,
+but just adding the MCP server in the JSON file, okay.
+So to add the MCP connect to the MCP,
+it just have to go to add in this MCP.js file
+just add inside here, okay.
+You can just type in there
+or you can just type as a prompt
+and add ask hero to add this into the MCP.js file.
+Okay, so one of the good MCP server
+there is recommended is this MCP documentation,
+MCP server, and the blessed documentation,
+MCP server.
+So imagine you're developing something for MCP less, okay.
+And then you want to refer something
+to the MCP documentation.
+So normally what do you do?
+Probably you have to go out and do a Google search
+and read about the documentation.
+Now, if you connect to this
+at the best documentation MCP server,
+you just have to ask inside your chat panel.
+Then you go and dig out the documentation
+of Visual Documentation from AWS
+and then you can see the result in your chat panel, okay.
+So this is a very good MCP server.
+So for example, I want to look at
+the address of computation, how to trigger lambda, okay.
+Because now I'm connected to my MCP server,
+I can get the result straight away.
+And then you pull out the result for me
+without, based on the address of computation,
+this is how you do it.
+I don't need to go out and Google it.
+I can just ask inside my chat panel.
+Okay, next one I just want to talk about
+is a recently Kiro also introduced another variant
+which is the Kiro CLI command line interface.
+So we see our line.
+Now you also can use this AI agent
+just like the task that you have seen
+in the Kiro IDE.
+You can write review and modify your code
+or to make the workflow everything inside your command line, okay.
+So if you are a person that I'm a hardcore programmer,
+I do not like to see interface
+but I want to see everything in the command line.
+Now you can also assess to stack coding inside your command line.
+You do not need to go to the IDE.
+So this command line will understand your code similar
+to your IDE version.
+It's very adaptive and then you can chat with it.
+So the command line also have all these steering foul.
+MCP configuration decide the IDE
+and then you also have the auto agent
+to deliver the best result and the best price for you.
+So how do we install?
+So basically you just have to code and install this
+and then you just type Kiro dash CLI
+and you can launch the DSAC Kiro command line.
+Okay, so while the features,
+unique features in the Kiro CLI.
+So you have the interactive chat mode.
+Another unique thing is now in the CLI
+you can do some custom agent.
+You can create and deploy very specialized agent.
+Let's take a show example.
+You can integrate MCP, you can have similar to your IDE,
+you can create hopes, you can create
+steering foul, just like any AI agent.
+You also complete your code for you.
+So you can see you can create custom agent, MCP integration,
+smart, core agent steering, and also complete.
+So this is one example of an agent.
+For example, now you are developing something in a command line.
+Then you do not want the AI agent to be very generic.
+You want it to be a very specialized agent.
+So you say, okay, now I want to call this agent.
+This agent is a back end specialist.
+And this agent, what is it to do?
+He is very expert in building SPSJS API with MongoDB.
+So you give a system probe.
+You are a back end developer, specialized in the NodeJS,
+and SPSJS.
+There is not a tool that you are able to do.
+You can read the file, write the file, execute batch command.
+And then this is a resource available.
+But you ask the agent to make sure with the steering file.
+And this is all the back end standard that I want you to read before executing anything.
+So you can see, this agent now is very specialized agent.
+You do not want it to call a very generic AI agent.
+There from there.
+Now, when I curose the UI, when I do a chat, I call up the back end specialist.
+So now, I can say, I can add in the new API,
+implying, do some authentication, do some MongoDB schema.
+So now with this probe, everything will be based on what the back end agent
+is able to do, which is based on this back end specialist agent.
+Okay, so you might be intrigued, okay.
+It is free, okay.
+So people always say that the AWS is no free thing.
+But yes, if you are first time trying out with Kiro,
+when you sign up, you get 500 bonus free credit for the days,
+30 days for new user.
+After 30 days, it is still free.
+Technically, there is still free, but you only limit to 50 credits.
+Okay, so this is, for example, I created a new account today.
+I will get something like this, okay.
+You can see that once you create account,
+if you don't do anything, you get 500 credits for 30 days.
+And it's free, okay.
+So, of course, you ask you to upgrade the planner.
+So if you feel like, oh, start coding is something that I've been looking for,
+because I try out web coding, it always fail me.
+I want it to be a more organised way of coding.
+Then this is how you can choose, okay.
+Like I said, after 30 days, okay,
+it's still free, yes, you still get 50 credits free,
+but beyond that, it's so free.
+Then you can upgrade to 20 USD per month,
+you get 1000 credit.
+If you are pro plus, you get 40 dollar per month,
+you get 2000 credit,
+that if you are power user, you can pay up to 200 USD per month,
+you can like 10,000 credit, okay.
+So, you probably ask,
+you probably ask, how does the credit work?
+Okay, how does the credit work?
+So, in the other way,
+a credit will be something like,
+it's not like a one problem.
+It's like probably one problem,
+and how much the agent work that will be calculated has per credit.
+Okay.
+So, sometimes a problem,
+and it does something add it to your file,
+and it doesn't make any big changes,
+that could be consists like zero point one credit.
+So, there's no proper way to tell how it calculate,
+but every time when you finish something,
+you can go and look at usage,
+you'll tell it that how much credit you have used up.
+Okay.
+Okay, so, maybe I will do it tomorrow,
+so before I do it tomorrow,
+okay.
+You can see that QR is very detailed with it.
+Okay.
+To what do you think,
+one of the disadvantage of QR?
+No, no, Manila.
+The one of these advantage of QR
+is people say,
+it's over drive by quoting, okay.
+That means, for simple thing,
+he creates too many file for you, okay?
+So, let me show you.
+Okay.
+So, what I want to do is this,
+okay?
+So, what I want to do,
+I have this app, okay?
+Simple app lah,
+I want to track my expenses,
+but this app,
+I want what I want to do,
+I just want to create a Google lock-in, okay?
+So, I just want to create a sign in something like this, okay?
+So, I go to,
+I go to QR,
+I say I want to create this,
+just a button to sign in, okay?
+And then this is what happened.
+Okay?
+So, I don't know whether I can zoom in,
+or you can see that, okay?
+Actually, my file is very simple,
+you can see how many file created,
+called spec lah, designer, requirement,
+Tesla, product lah, historia.
+Many, many, many, many, many, many,
+many files I created, okay?
+So, if you are person who like to document everything,
+good for you, lot of documentation,
+but,
+because I just want to create one button,
+it creates so many files for me.
+And so many,
+Markdown file for me, okay?
+And then this is what happened.
+First, I started with something like this,
+a problem, okay?
+I started with a problem that
+I want to create a sign in with Google page.
+Then you start creating the steering file,
+they create the requirement file,
+they create the task file,
+they create all this thing, okay?
+Good, good, okay?
+He started understand why I'm trying to do.
+After that, he tried to create this file for me, okay?
+All the requirement,
+the design, the task,
+then to actually,
+you can see so many tasks,
+and happy lah,
+every single task he do a validation,
+make sure everything task is correctly,
+okay?
+You can see there so many tasks.
+You know how long to run that whole thing
+and make sure that I have a Google sign like this?
+So this is, okay?
+See this is my tractor lah,
+and then there is a sign in there.
+You can see now I have a Google button sign, okay?
+I'll re-sign it, okay?
+So everything work,
+but just to create this pattern,
+take me forward, okay?
+But it's very detailed lah, okay?
+And then in between there's some error,
+but I just want to say that
+if there is something that you want it to be very detailed
+and doesn't go wrong,
+this could be a very good thing set to do,
+but sometimes it could be over driver, okay?
+You can see it creates so many McDonald file,
+it creates a lot of documentation for me
+and it creates a lot of other things for me, okay?
+And then these are the, you can see here,
+I have this, I have this steering file,
+the product,
+and then the structure and then the tag.
+So everything is treated here,
+then I have the, I have the hook,
+there's now I say whenever there's any monitor,
+the pattern, if anything changed,
+I want to create update to documentation,
+and then you can see this is my spec, okay?
+So the specification,
+so you can see all the things that are working fine, okay?
+And then this is where the chat will have,
+and then if I want to restore up here,
+you can see there's a check point up there,
+there's a check point,
+so if anything that I want to re-vert back,
+you can click the restore button,
+so there is a check point inside the ID,
+if you feel like something that you have done
+that you do not want, you want to re-vert,
+you can go the restore button,
+so everything is nice,
+the only drawback, okay?
+The only drawback is this,
+oops, let me go back to my slides,
+oh my slides here,
+okay, so you can see,
+everything is working fine,
+yeah, conclusion,
+kira, definitely,
+Mark turning point,
+where now,
+you have a proper way
+to actually turn your coding,
+and give you a very proper architecture,
+and the future now,
+there's some belong to people,
+just simply combat logic to syntax,
+but people who have a very articulate intent,
+clarity, and precision,
+to allow the system to bring kira
+to vision to life, okay?
+So what is the pros and cons,
+invest my pros and cons,
+I didn't show here,
+I think I missed the slides, okay?
+Anyway,
+I just want to say what's the pros and cons,
+okay? The pros is,
+with kira,
+okay?
+Definitely,
+if you want a proper documentation,
+if you want to every single task to be tested,
+and very data,
+if you want to have a proper user story,
+with all the proper documentation,
+that's really kira,
+is something that,
+with spec coding,
+it provides for you.
+The cons is,
+okay? Sometimes,
+simple things can be over,
+over engineered,
+okay?
+You create a lot of over this documentation,
+that might not be necessary,
+but it could be a better way
+compared to just a white coding,
+when you just give a problem,
+if you take it to deliver
+end-to-end results to you,
+okay?
+Before that,
+I just want more demo,
+which is the kira CRI,
+how does it look like?
+Okay?
+So kira CRI look something like this,
+okay?
+Let me zoom in.
+Okay?
+So you guys should see,
+ask question, kira,
+then you can give a command,
+create something,
+you create for you,
+then similarly,
+you can just add it,
+then everything is command like,
+okay?
+So with that,
+so I will end the presentation,
+thank you very much.
+Thank you.
+
+
+---
+
+*Transcribed using OpenAI Whisper (model: tiny)*

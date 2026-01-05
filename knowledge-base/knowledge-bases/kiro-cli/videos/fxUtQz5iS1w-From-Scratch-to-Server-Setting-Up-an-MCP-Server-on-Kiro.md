@@ -1,0 +1,449 @@
+---
+category: videos
+tags: ["videos", "tutorials", "examples"]
+source: kiro-cli-knowledge-base
+indexed: 2026-01-04T22:49:42Z
+---
+
+# From Scratch to Server: Setting Up an MCP Server on Kiro
+
+**Video:** https://youtu.be/fxUtQz5iS1w?si=qYcH8yvGGK5W3e7X
+**Platform:** YouTube
+**Channel:** Kiro
+**Video ID:** fxUtQz5iS1w
+**Duration:** 00:13:53
+**Published:** 2025-08-22
+
+---
+
+## Transcript
+
+M, C, P, the model context protocol.
+It's a protocol that gives your LLMs, your coding assistance, your agentic IDEs.
+That's a little bit more information.
+That little bit more control that helps you do things so much better.
+There are usually used in the form of MCP servers,
+and they can do things from like interact with databases,
+to, I don't know, read additional documentation.
+Today, I'm going to show you how you can set up the neon MCP server,
+on MCP server, and the Rust Crate MCP server on Kero,
+so we can build some cool things with some databases,
+and some Rust packages.
+Let's do it.
+Let's set up this MCP servers on Kero.
+Let's start off with neon.
+Now, neon is your fantastic server,
+a small square database out there in the cloud,
+and this MCP server basically allows Kero to interact with this database.
+It can do things like create projects, create tables,
+make SQL queries, incredibly good when you want to build a project
+that includes the database and neon.
+To do that, the simplest way to configure it,
+we're going to call all the way down to the local MCP server,
+and we're going to take this whole thing here,
+or not the whole thing.
+This part, that just says neon,
+if we take the whole thing, this is the whole MCP configuration,
+I'm just going to take this a little bit,
+and I'm going to go into Kero.
+Now, with a project open,
+you click on the little ghost icon on the left hand right side,
+and underneath the MCP servers, there's a little edit button.
+Click on that, and you get this wonderful little MCP server,
+I'm going to add a little comma here,
+and I'm going to paste in the thing.
+Now, you may see here that already have an MCP server,
+I have the 80-bit of docs MCP server,
+but in this case, I'm just going to add that neon MCP server.
+I'm going to add another little thing here.
+I'm going to add a thing that says disabled.
+I'm going to say false.
+Good.
+And I just need to go ahead and replace this neon API key
+with a proper API key, but I'll do that in a second,
+because I don't want to show you my API key.
+Before I go and change that,
+I'm going to go ahead and get one more MCP server.
+I'm going to get the crates docs MCP server.
+Now, this is an MCP server written in Rust,
+and it's basically used to bulk up crates,
+basically rust packages, right?
+And it's slightly different than the one you've seen before,
+because it doesn't use like NPM or NPX or DockerTron,
+it's just a binary running on your system.
+To install this thing, you just select this whole thing,
+go into a repository where you have or somewhere you want to go ahead,
+and let me just clear this here.
+You would basically just paste in this, get clone and build.
+Once this thing is built, now I have this thing built already.
+Once this thing is built, you're going to run the command call
+cargo install dash-path.
+Basically, this will install the binary that the application
+within this repository locally on your file systems.
+That means if I run crates docs,
+I'm going to get this MCP server as a binary on my system,
+which is just fantastic.
+Now, to set this up on MCCuro,
+I'm going to just do another thing exactly the same as I did here.
+I'm going to copy this thing.
+I'm going to go here and paste it in,
+bottom like that.
+I'm not going to call it neon.
+I'm going to call it crates docs.
+Command is going to literally be crates docs.
+Create docs.
+I don't need to go ahead and set up an MPX thing
+because it's literally a binary running on my system.
+I'm going to delete all of these things
+and I'm just going to set up a single parameter here
+and it's going to call the STDIO.
+Because I'm going to use the STDIO version of this MCP server.
+Pull comma here, so it all looks good.
+I think that looks good.
+I'm going to go ahead and just input my API key here
+because I don't want you to see it.
+One moment please.
+Okay.
+My key is somewhere down there.
+I'm not going to show it to you.
+It's literally just the next line over.
+But on the left hand side,
+you will see that all of these things are connected.
+If you click on crates docs,
+you will see all of these available tools to this MCP server.
+On the left hand side,
+you will see all of these neon tools.
+There's a lot of them here.
+Beautiful.
+We are ready to go.
+With our MCP servers available,
+let's go ahead and make some changes
+to our application.
+In this case, this is an empty rust project.
+We don't have anything.
+So we're going to go ahead and buy code.
+Some functionality into it.
+And we're going to kind of tell it to use MCP servers
+in a roundabout way.
+So I'm going to paste in a big old prom here
+that what I tell it is that before we start coding,
+let's go ahead and create a project on neon
+called old computers.
+This will contain a database called vintage.
+In there, I want to store a database of old computers.
+What I need, there's a following, columns ID,
+manufacturer, model, amount of RAM, CPU,
+type, main storage,
+rear release, in order not to duplicate,
+I want to create a separate tables for CPU,
+type, main factory is main storage,
+and then I will then use foreign keys to connect to them.
+So basically, I told it,
+this is how I want my database to look like.
+It should be smart enough to pick up the MCP
+and run it.
+So I'm going to open up this so we see the MCP in action.
+Hit this button,
+and a cure goes ahead and starts executing this one.
+In a moment,
+you will say it's going to run the MCP server called create projects,
+both.
+Basically, it has created a project out there on neon.
+The next step is going to be creating a database in this case.
+Let's see what it's going to do,
+but you will see it's going to be an MCP call.
+Look at that.
+I know that this is not going to work,
+because it's, you'll say,
+run it.
+It should fail.
+Well, yes.
+The reason it fails is because it cannot create
+a cannot run created based inside of a transaction block.
+So it's smart enough.
+Okay.
+First, let me create the database.
+And then what it's created in the database,
+it's going to go ahead and,
+well, add the tables.
+So we'll get this is all creating the tables.
+Beautiful.
+In fact, show us CPTops, main storage types,
+and computers.
+Wonderful.
+All foreign keys.
+Wonderful.
+I love all of these things.
+I think even for the sake of our,
+a safeguard project,
+it's going to go ahead and add stuff to the database.
+So it's not getting the database table,
+so it's going to just ensuring that this thing is happening.
+Excellent.
+Your new project is the,
+the foreign keys,
+excellent, excellent, excellent,
+excellent.
+Ready to start adding some plastic computers to,
+I'm going to do it.
+Can you add add some sample data?
+I'm going to tell you just add some sample data
+into this data,
+so we can work on it.
+Right.
+And because of the MCP,
+it can actually go ahead and insert certain things like Apple.
+I'm OS 65 or two.
+I think it's going to be an apple
+or something,
+except this run a SQL contraction.
+Again, running actual SQL transactions,
+with your API key on to neon,
+and it's going to be adding those things in there.
+So in a moment,
+we will see it's actually adding an,
+a computer here.
+It's going to be an apple through
+977.
+I love it.
+Okay.
+Perfect.
+Now, because it's going to run as SQL queries,
+it can also query the data inside.
+I think it's going to be running a normal select query.
+Look at that. Yes.
+Select query.
+I'm going to go ahead and output this data for us here.
+Look at that.
+Apple,
+Commodore,
+Tandy,
+Glorious.
+Wonderful.
+Wonderful.
+Wonderful.
+This is a simple example.
+You can use the MCP server to
+interact with the database.
+What we're going to do right now,
+is we're going to ask it to build us an application
+that uses this database,
+and it's going to use the
+crates docs MCP server to go ahead and find out
+which correct crates,
+which correct versions it should use.
+Okay.
+Let's do a little bit more vibe coding.
+I told you that basically to use a build me a
+Rust application who correct that will use
+correct crates to query data from this database.
+Make sure to use the latest versions of crates and
+the appropriate crates features.
+I don't know that use crate docs if needed.
+So let's see if it's going to go ahead and actually use
+the crates doc MCP,
+which we so graciously have here in
+the list of our MCP servers.
+I'll help people.
+Let's see.
+Sometimes it's actually quite
+confident in which ones it has to use,
+but it's I see it reads my cargo tunnel
+and my main RS file.
+Let's go ahead and see what it's going to say.
+Okay, perfect.
+It's going to go ahead and look for my crates using
+the search crates,
+SQL async database.
+Perfect.
+It's probably going to get SQLx or Tokio,
+of course,
+those are kind of the crates you need to do it.
+And the thing is,
+it's a, is a, is a experience that I'll
+pre know what things should go there.
+However,
+sometimes it doesn't get the latest version.
+It goes for all this version.
+You know,
+you really don't want to do that.
+Correctly,
+it's using SQLx
+as the crate here.
+Perfect.
+Looking up Tokio,
+all of these things.
+So what it does here,
+when it goes and looks up,
+looks up at a crate.
+It actually gets information a little bit
+of the docs about this specific crate
+and the current versions and all those things.
+So it is very,
+very useful for it to be able to
+get you the correct information
+for your cargo tunnel file.
+It's going to go ahead and search for stuff.
+Of course,
+search a JSON,
+of course,
+dot envy.
+And so it's going to look for
+environment variable crates,
+which is great.
+One of the problems that,
+that,
+that the LMS had in the past is that
+when they would use
+rust projects and use environment
+for environment variables,
+they would usually use the dot end of
+crate,
+but that's an outdated crate.
+So the dot envy one is the correct one.
+And as I can see here,
+it has actually searched for the latest version
+of dot envy,
+which is really, really good.
+Looking a bunch of crates like it's going
+to go ahead and collect all of this data.
+That it needs,
+it may already have this data internally,
+but this is going to get you the latest version
+of this data.
+Once it's started working,
+once it's started adding stuff to cargo
+to the tunnel,
+okay, well,
+it is doing it right now.
+Perfect.
+So it's adding stuff to cargo to the tunnel.
+In a second here,
+we should be able to see things added.
+Perfect.
+Here's the SQLX,
+Tokio,
+survey,
+anyhow,
+all of these things,
+and it's actually got us the correct features of those specific crates.
+In a second here,
+we'll be able to edit our main dot RS file.
+I'm going to assume here in a sec.
+We should be actually able to create
+the correct data structures.
+Perfect.
+So the thing is,
+it's going to be able to,
+well, it's actually remembered.
+It's going to be able to look up stuff here.
+Oh, actually,
+you know what, see,
+it hasn't even looked up my database.
+So it has kind of guessed what I want.
+As you can see,
+CPU, memory megabytes storage type.
+So it wasn't,
+it wasn't intelligent enough to go ahead and check what,
+what, what database we have.
+I am actually going to go and
+start to cancel it.
+Update,
+give even just a second.
+So I told it,
+just to make sure to use my neon project,
+call the old computers.
+And because of this,
+it's going to,
+oh, okay,
+I'm so sorry.
+I'm going to go actually,
+look at your project.
+And it's going to be able to get my database key mine,
+or all the tables I have,
+look at that.
+And look at the old computers project.
+And it's going to use all of this information now.
+And go ahead and change my application.
+This is the power of MCP servers.
+It gives you additional context.
+So your applications can not only kind of do things in isolation,
+but actually be able to,
+get information from somewhere beyond.
+And, and, and, and, and, and, and,
+correctly generate code because now it knows my database
+schema set of me having to provide that information manually.
+Once it's done this, let's, let's, let's go back to once,
+once it's such generating some cool code.
+Okay, it's doing something.
+After a little bit of back and forth,
+it, it has actually made the code.
+It's going to go ahead and run,
+um, cargo run here as you can see.
+It's compiling the application.
+Uh, and a couple of seconds.
+Hopefully it compiles successfully.
+And let's see what happens.
+If it doesn't, we're going to have it fixed.
+So let's have a look.
+Beautiful.
+This, that it actually goes ahead and,
+knows how to connect to neon specifically.
+Okay.
+We do have a couple of issues here.
+Uh, there's a couple of errors here.
+Uh, set aside trade bounds, all of these kinds of things.
+Okay.
+So it's going to be going to, it's going to understand these things.
+Okay.
+Wonderful.
+It, it has shell integrations in this case,
+so it's going to be able to kind of look at all of these things.
+And it needs to know, it needs,
+and like, it, it, it understood that it needs to enable the
+rest, decimal feature in SQLx.
+Beautiful.
+So let's, uh, it's going to go ahead and make some changes right now.
+And once it's back, um, we're going to see it in action.
+One of the issues that notice here, it doesn't have access to compile
+time at macros.
+That's the beauty of SQLx because it can do compile time checking of
+SQL queries.
+In this case, we haven't set up that connection here,
+so it's going to not going to use those compile time macros.
+It's going to just use normal things because it's going to cause
+issues.
+It's created it clocked that early on.
+So back to fixing code.
+Okay.
+Almost successful.
+I see that it started putting computers.
+Wonderful.
+But everybody had a panic.
+Something happened.
+Um, uppercut's working, but there's a top miss patch issue with average function
+or returning numeric instead of float 8.
+Okay.
+In essence, if works, but it's going to has a couple of bugs.
+You're going to go ahead and fix it out because up miss match types.
+Got a lot of type system and rust.
+And just like that, fixed wonderful demo completed successfully.
+Now, this demo wasn't here to teach you how to do do rust and use SQLx
+and connect to any on database.
+None of that.
+There's so many more tutorials you can follow, but it was here to show you how simple
+it is to connect MCP servers to Kiro.
+Your new favorite coding assistant.
+So go ahead.
+Let me know what are your favorite MCP servers down in the comments below.
+I do want to hear your suggestion because so many new things come out every day.
+If you enjoy this content, there's the little like button down below.
+If you would love to see more like this,
+make sure to subscribe to this channel.
+My name is Vendarko.
+I'll see you on the next one.
+
+
+---
+
+*Transcribed using OpenAI Whisper (model: tiny)*

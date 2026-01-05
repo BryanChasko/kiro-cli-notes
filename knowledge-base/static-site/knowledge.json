@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "exportDate": "2026-01-04T23:47:27.226Z",
+    "version": "1.0.0",
+    "source": "kiro-cli-knowledge-base",
+    "totalChunks": 0
+  },
+  "knowledgeBases": [
+    "kiro-cli"
+  ],
+  "chunks": []
+}

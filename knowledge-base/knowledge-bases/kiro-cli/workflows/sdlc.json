@@ -1,0 +1,28 @@
+{
+  "_attribution": {
+    "source": "Kiro CLI Video 03: AWS re:Invent SDLC Workflows",
+    "creators": "AWS Kiro CLI Team",
+    "maintainer": "Bryan Chasko (@bryanchasko)",
+    "guidance": "Professional SDLC automation patterns from enterprise presentation"
+  },
+  "name": "professional-sdlc",
+  "description": "Complete SDLC workflow with cost optimization",
+  "phases": [
+    {
+      "name": "requirements",
+      "prompt": "Analyze requirements and create technical specifications using Auto Mode for cost efficiency"
+    },
+    {
+      "name": "implementation",
+      "prompt": "Generate production-ready code following team standards, leverage MCP servers for enhanced capabilities"
+    },
+    {
+      "name": "testing", 
+      "prompt": "Create comprehensive tests and run security scans using hooks automation"
+    },
+    {
+      "name": "documentation",
+      "prompt": "Update all documentation and deployment guides, ensure accessibility compliance"
+    }
+  ]
+}

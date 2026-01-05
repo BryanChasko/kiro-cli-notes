@@ -1,0 +1,18 @@
+{
+  "name": "kiro-knowledge-export",
+  "version": "1.0.0",
+  "description": "Export pipeline for Kiro CLI knowledge base",
+  "main": "export-knowledge.js",
+  "scripts": {
+    "export": "node export-knowledge.js",
+    "test": "node test-export.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "keywords": ["kiro", "knowledge-base", "export", "mcp"],
+  "author": "Bryan Chasko",
+  "license": "MIT"
+}
