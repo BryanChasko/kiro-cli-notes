@@ -1,0 +1,135 @@
+/**
+ * Design System Foundation - Semantic Color Tokens
+ * Hierarchy: Base → Functional → Component
+ */
+
+/* Base Tokens (Primitives) */
+:root {
+  /* Colors */
+  --color-white: #FFFFFF;
+  --color-black: #0F0F0F;
+  --color-gray-50: #F9F9F9;
+  --color-gray-100: #E4E4E4;
+  --color-gray-200: #C8C8C8;
+  --color-gray-600: #94A1B2;
+  --color-gray-900: #16161A;
+  
+  /* Brand Colors */
+  --color-purple-400: #A78BFA;
+  --color-purple-500: #7F5AF0;
+  --color-green-500: #2CB67D;
+  --color-orange-500: #FF8906;
+  --color-red-500: #EF4565;
+  
+  /* Spacing (8px grid) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  
+  /* Typography */
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --line-height-tight: 1.4;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.015em;
+}
+
+/* Functional Tokens (Semantic) - Light Theme */
+:root,
+[data-theme="light"] {
+  --bg-primary: var(--color-gray-50);
+  --bg-secondary: var(--color-white);
+  --bg-tertiary: var(--color-gray-100);
+  
+  --text-primary: var(--color-gray-900);
+  --text-secondary: var(--color-gray-600);
+  --text-inverse: var(--color-white);
+  
+  --border-primary: var(--color-gray-200);
+  --border-secondary: var(--color-gray-100);
+  
+  --accent-primary: var(--color-purple-500);
+  --accent-secondary: var(--color-purple-400);
+  
+  --status-success: var(--color-green-500);
+  --status-warning: var(--color-orange-500);
+  --status-error: var(--color-red-500);
+  --status-info: var(--color-purple-500);
+}
+
+/* Functional Tokens (Semantic) - Dark Theme */
+[data-theme="dark"] {
+  --bg-primary: var(--color-black);
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #2E2E2E;
+  
+  --text-primary: var(--color-gray-100);
+  --text-secondary: var(--color-gray-600);
+  --text-inverse: var(--color-black);
+  
+  --border-primary: #2E2E2E;
+  --border-secondary: #1A1A1A;
+  
+  --accent-primary: var(--color-purple-500);
+  --accent-secondary: var(--color-purple-400);
+  
+  --status-success: var(--color-green-500);
+  --status-warning: var(--color-orange-500);
+  --status-error: var(--color-red-500);
+  --status-info: var(--color-purple-500);
+}
+
+/* Component Tokens */
+:root {
+  --card-bg: var(--bg-secondary);
+  --card-border: var(--border-primary);
+  --card-shadow: none;
+  
+  --button-bg: var(--accent-primary);
+  --button-text: var(--text-inverse);
+  --button-border: transparent;
+  
+  --input-bg: var(--bg-secondary);
+  --input-border: var(--border-primary);
+  --input-text: var(--text-primary);
+  
+  --modal-bg: var(--bg-primary);
+  --modal-overlay: rgba(0, 0, 0, 0.8);
+  
+  /* Terminal-specific tokens */
+  --terminal-bg: var(--color-black);
+  --terminal-text: var(--color-gray-100);
+  --terminal-success: var(--color-green-500);
+  --terminal-warning: var(--color-orange-500);
+  --terminal-error: var(--color-red-500);
+  --terminal-info: var(--color-purple-500);
+  --terminal-muted: var(--color-gray-600);
+}
+
+/* Motion & Transitions */
+:root {
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.2s ease-in-out;
+  --transition-slow: 0.3s ease-in-out;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0s;
+    --transition-normal: 0s;
+    --transition-slow: 0s;
+  }
+}
+
+/* Focus ring */
+:root {
+  --focus-ring: 2px solid var(--accent-primary);
+  --focus-offset: 2px;
+}

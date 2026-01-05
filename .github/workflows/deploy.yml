@@ -15,34 +15,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # Enable GitHub Pages if not already enabled
-  enable-pages:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Enable GitHub Pages
-        uses: actions/github-script@v7
-        with:
-          script: |
-            try {
-              await github.rest.repos.createPagesSite({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                source: {
-                  branch: 'main',
-                  path: '/knowledge-base/static-site'
-                }
-              });
-              console.log('GitHub Pages enabled successfully');
-            } catch (error) {
-              if (error.status === 409) {
-                console.log('GitHub Pages already enabled');
-              } else {
-                console.log('Error enabling Pages:', error.message);
-              }
-            }
-
   build:
-    needs: enable-pages
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -77,8 +50,15 @@ jobs:
         cd knowledge-base/export-pipeline
         node export-knowledge.js
         
+    - name: Verify Design System Files
+      run: |
+        echo "Checking design system files..."
+        ls -la knowledge-base/static-site/css/
+        ls -la knowledge-base/static-site/js/
+        echo "Design system files verified ✅"
+        
     - name: Setup Pages
-      uses: actions/configure-pages@v4
+      uses: actions/configure-pages@v5
       
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3

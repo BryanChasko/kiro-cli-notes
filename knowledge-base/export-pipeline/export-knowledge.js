@@ -9,24 +9,44 @@ class KnowledgeExporter {
     this.serverProcess = null;
     this.messageId = 1;
     this.responses = new Map();
+    this.colors = {
+      info: '\x1b[38;2;127;90;240m',
+      success: '\x1b[38;2;44;182;125m',
+      warn: '\x1b[38;2;255;137;6m',
+      error: '\x1b[38;2;239;69;101m',
+      muted: '\x1b[38;2;148;161;178m',
+      reset: '\x1b[0m'
+    };
     this.tracer = {
       startSpan: (name, attrs = {}) => {
         const id = `${name}_${Date.now()}`;
-        console.log(`🔍 [TRACE] Started: ${name}`, attrs);
+        const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
+        console.log(`${this.colors.muted}----[ ◇ TRACE START: ${name.toUpperCase()} ]----${this.colors.reset}`);
+        console.log(`${this.colors.info}[${timestamp}] [◇] Starting trace: ${name}${this.colors.reset}`, attrs);
         return id;
       },
       addEvent: (id, event, attrs = {}) => {
-        console.log(`📊 [EVENT] ${event}`, attrs);
+        const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
+        console.log(`${this.colors.info}[${timestamp}] [•] ${event}${this.colors.reset}`, attrs);
       },
       setStatus: (id, status, error = null) => {
+        const timestamp = new Date().toISOString().split('T')[1].split('.')[0];
+        const statusMap = {
+          'success': { prefix: '[✓]', color: this.colors.success },
+          'error': { prefix: '[✗]', color: this.colors.error },
+          'warning': { prefix: '[!]', color: this.colors.warn }
+        };
+        
+        const statusInfo = statusMap[status] || { prefix: '[•]', color: this.colors.info };
+        
         if (status === 'error' && error) {
-          console.error(`❌ [TRACE] ${status}: FAILED`, {
-            error: error.message,
-            stack: error.stack,
-            operation: id
-          });
+          console.log(`${statusInfo.color}[${timestamp}] ${statusInfo.prefix} FAILED: ${error.message}${this.colors.reset}`);
         } else {
-          console.log(`${status === 'success' ? '✅' : '⚠️'} [TRACE] ${status}${error ? ': ' + error.message : ''}`);
+          console.log(`${statusInfo.color}[${timestamp}] ${statusInfo.prefix} ${status.toUpperCase()}${this.colors.reset}`);
+        }
+        
+        if (status === 'success' || status === 'error') {
+          console.log(`${this.colors.muted}----[ ◇ TRACE END ]----${this.colors.reset}`);
         }
       }
     };

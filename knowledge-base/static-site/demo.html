@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System Demo - Kiro CLI</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎨 Design System Demo</h1>
+            <p class="subtitle">OpenTelemetry Terminal Output & Modern UI Components</p>
+        </header>
+
+        <main class="main">
+            <div class="card">
+                <h2>🚀 Features Showcase</h2>
+                <p>This demo showcases the complete design system implementation with:</p>
+                <ul style="margin: 16px 0; padding-left: 24px;">
+                    <li><strong>Dark Terminal Styling</strong> - Enhanced OpenTelemetry console output</li>
+                    <li><strong>Modal Terminal Interface</strong> - Live trace viewing (Ctrl+`)</li>
+                    <li><strong>Light/Dark Mode Toggle</strong> - System preference aware</li>
+                    <li><strong>ASCII Components</strong> - Semantic HTML styled as terminal art</li>
+                    <li><strong>Design Token System</strong> - Consistent theming hierarchy</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>🎯 Interactive Demo</h2>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0;">
+                    <button class="btn" onclick="demoTrace()">Trigger OpenTelemetry Trace</button>
+                    <button class="btn btn--secondary" onclick="demoError()">Simulate Error</button>
+                    <button class="btn btn--secondary" onclick="demoProgress()">Show Progress</button>
+                    <button class="btn btn--secondary" onclick="window.terminalModal?.toggle()">Open Terminal Modal</button>
+                </div>
+            </div>
+
+            <div id="demo-components"></div>
+
+            <div class="card">
+                <h2>📊 System Metrics</h2>
+                <div id="metrics-display"></div>
+            </div>
+
+            <div class="card">
+                <h2>🎨 Theme System</h2>
+                <p>The theme toggle in the top-right corner switches between light and dark modes with:</p>
+                <ul style="margin: 16px 0; padding-left: 24px;">
+                    <li>System preference detection</li>
+                    <li>localStorage persistence</li>
+                    <li>Smooth transitions</li>
+                    <li>WCAG AA contrast compliance</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="status-info">
+                <span>Design System v1.0.0 • Ready</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/tracer.js"></script>
+    <script src="js/terminal-modal.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/ascii-components.js"></script>
+    
+    <script>
+        // Demo functionality
+        let demoTracer;
+        let progressCounter = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            demoTracer = new KnowledgeTracer();
+            setupDemo();
+        });
+
+        function setupDemo() {
+            // Add system status divider
+            const systemDivider = ASCII.createDivider('DEMO SYSTEM ONLINE', 'system');
+            const main = document.querySelector('.main');
+            main.insertBefore(systemDivider, main.firstChild);
+
+            // Add initial components
+            const componentsContainer = document.getElementById('demo-components');
+            
+            // Status badges
+            const statusCard = document.createElement('div');
+            statusCard.className = 'card';
+            statusCard.innerHTML = '<h2>📋 Status Components</h2>';
+            
+            const badges = [
+                ASCII.createStatusBadge('success', 'System Online'),
+                ASCII.createStatusBadge('warning', 'High Memory Usage'),
+                ASCII.createStatusBadge('error', 'Connection Failed'),
+                ASCII.createStatusBadge('info', 'Processing Data')
+            ];
+            
+            badges.forEach(badge => {
+                badge.style.margin = '8px 8px 8px 0';
+                statusCard.appendChild(badge);
+            });
+            
+            componentsContainer.appendChild(statusCard);
+
+            // Info box
+            const infoBox = ASCII.createInfoBox(
+                'Terminal Access',
+                [
+                    'Press Ctrl+` (or Cmd+`) to open the live terminal',
+                    'All OpenTelemetry traces appear in real-time',
+                    'Dark terminal theme with color-coded status'
+                ],
+                'info'
+            );
+            componentsContainer.appendChild(infoBox);
+
+            // Initial metrics
+            updateMetrics();
+        }
+
+        function demoTrace() {
+            const span = demoTracer.startSpan('demo_operation', { 
+                operation: 'user_triggered',
+                timestamp: Date.now()
+            });
+            
+            demoTracer.addEvent(span, 'processing_data', { records: 42 });
+            
+            setTimeout(() => {
+                demoTracer.addEvent(span, 'validation_complete');
+                demoTracer.setStatus(span, 'success');
+                demoTracer.endSpan(span);
+                updateMetrics();
+            }, 1500);
+        }
+
+        function demoError() {
+            const span = demoTracer.startSpan('error_simulation');
+            
+            setTimeout(() => {
+                const error = new Error('Simulated connection timeout');
+                demoTracer.setStatus(span, 'error', error);
+                demoTracer.endSpan(span);
+                updateMetrics();
+            }, 800);
+        }
+
+        function demoProgress() {
+            progressCounter++;
+            const progressBar = ASCII.createProgressBar(
+                Math.min(progressCounter * 2, 10), 
+                10, 
+                `Demo Progress ${progressCounter}`
+            );
+            
+            const existing = document.querySelector('.ascii-progress');
+            if (existing) {
+                existing.replaceWith(progressBar);
+            } else {
+                document.getElementById('demo-components').appendChild(progressBar);
+            }
+        }
+
+        function updateMetrics() {
+            const metrics = demoTracer.getMetrics();
+            const metricsDisplay = ASCII.createMetricsDisplay({
+                totalTraces: metrics.totalSpans,
+                successfulTraces: metrics.successfulSpans,
+                failedTraces: metrics.failedSpans,
+                successRate: metrics.totalSpans > 0 ? 
+                    `${Math.round((metrics.successfulSpans / metrics.totalSpans) * 100)}%` : '0%',
+                avgDuration: `${metrics.averageDuration.toFixed(1)}ms`
+            });
+            
+            const container = document.getElementById('metrics-display');
+            container.innerHTML = '';
+            container.appendChild(metricsDisplay);
+        }
+    </script>
+</body>
+</html>

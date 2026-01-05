@@ -48,6 +48,11 @@ class KnowledgeApp {
             // Set up event listeners
             this.setupEventListeners();
             
+            // Demo ASCII components
+            this.setupASCIIDemo();
+            
+            this.tracer.addEvent(span, 'app_ready');
+            
             // Update UI
             await this.updateFilters();
             await this.updateMetadata();
@@ -360,6 +365,45 @@ class KnowledgeApp {
      */
     hideSuggestions() {
         // Hide suggestions UI
+    }
+
+    /**
+     * Setup ASCII component demonstrations
+     */
+    setupASCIIDemo() {
+        // Add system status divider
+        const systemDivider = ASCII.createDivider('SYSTEM ONLINE', 'system');
+        const main = document.querySelector('.main');
+        main.insertBefore(systemDivider, main.firstChild);
+
+        // Add metrics display if we have tracer data
+        setTimeout(() => {
+            const metrics = this.tracer.getMetrics();
+            if (metrics.totalSpans > 0) {
+                const metricsDisplay = ASCII.createMetricsDisplay({
+                    totalTraces: metrics.totalSpans,
+                    successRate: `${Math.round((metrics.successfulSpans / metrics.totalSpans) * 100)}%`,
+                    avgDuration: `${metrics.averageDuration.toFixed(1)}ms`
+                });
+                
+                const statusInfo = document.querySelector('.status-info');
+                if (statusInfo) {
+                    statusInfo.appendChild(metricsDisplay);
+                }
+            }
+        }, 2000);
+
+        // Add terminal modal hotkey hint
+        const infoBox = ASCII.createInfoBox(
+            'Terminal Access',
+            'Press Ctrl+` to open live OpenTelemetry traces',
+            'info'
+        );
+        
+        const footer = document.querySelector('.footer');
+        if (footer) {
+            footer.insertBefore(infoBox, footer.firstChild);
+        }
     }
 
     /**
