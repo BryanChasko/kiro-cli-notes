@@ -43,61 +43,79 @@
 /* Functional Tokens (Semantic) - Light Theme */
 :root,
 [data-theme="light"] {
-  --bg-primary: var(--color-gray-50);
-  --bg-secondary: var(--color-white);
-  --bg-tertiary: var(--color-gray-100);
+  --bg-primary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+  --bg-secondary: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  --bg-tertiary: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
   
   --text-primary: var(--color-gray-900);
   --text-secondary: var(--color-gray-600);
   --text-inverse: var(--color-white);
   
-  --border-primary: var(--color-gray-200);
-  --border-secondary: var(--color-gray-100);
+  --border-primary: rgba(148, 163, 184, 0.3);
+  --border-secondary: rgba(148, 163, 184, 0.2);
   
-  --accent-primary: var(--color-purple-500);
+  --accent-primary: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
   --accent-secondary: var(--color-purple-400);
   
   --status-success: var(--color-green-500);
   --status-warning: var(--color-orange-500);
   --status-error: var(--color-red-500);
   --status-info: var(--color-purple-500);
+  
+  /* Light theme specific shadows and effects */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 0 3px rgba(124, 58, 237, 0.2);
+  --shadow-button: 0 2px 8px rgba(124, 58, 237, 0.3);
+  --shadow-button-hover: 0 4px 12px rgba(124, 58, 237, 0.4);
 }
 
 /* Functional Tokens (Semantic) - Dark Theme */
 [data-theme="dark"] {
-  --bg-primary: var(--color-black);
-  --bg-secondary: #1A1A1A;
-  --bg-tertiary: #2E2E2E;
+  --bg-primary: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  --bg-secondary: linear-gradient(135deg, #252547 0%, #2d2d5a 100%);
+  --bg-tertiary: linear-gradient(135deg, #1e1e3f 0%, #2a2a5a 100%);
   
-  --text-primary: var(--color-gray-100);
-  --text-secondary: var(--color-gray-600);
-  --text-inverse: var(--color-black);
+  --text-primary: #e0e6ed;
+  --text-secondary: #8a9ba8;
+  --text-inverse: #0a0a1a;
   
-  --border-primary: #2E2E2E;
-  --border-secondary: #1A1A1A;
+  --border-primary: rgba(79, 172, 254, 0.3);
+  --border-secondary: rgba(79, 172, 254, 0.2);
   
-  --accent-primary: var(--color-purple-500);
-  --accent-secondary: var(--color-purple-400);
+  --accent-primary: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --accent-secondary: #4facfe;
   
   --status-success: var(--color-green-500);
   --status-warning: var(--color-orange-500);
   --status-error: var(--color-red-500);
   --status-info: var(--color-purple-500);
+  
+  /* Dark theme specific shadows and effects */
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 3px rgba(79, 172, 254, 0.3);
+  --shadow-button: 0 4px 15px rgba(79, 172, 254, 0.4);
+  --shadow-button-hover: 0 6px 20px rgba(79, 172, 254, 0.6);
 }
 
 /* Component Tokens */
 :root {
   --card-bg: var(--bg-secondary);
   --card-border: var(--border-primary);
-  --card-shadow: none;
+  --card-shadow: var(--shadow-sm);
   
   --button-bg: var(--accent-primary);
   --button-text: var(--text-inverse);
   --button-border: transparent;
+  --button-shadow: var(--shadow-button);
   
   --input-bg: var(--bg-secondary);
   --input-border: var(--border-primary);
   --input-text: var(--text-primary);
+  --input-shadow: var(--shadow-sm);
   
   --modal-bg: var(--bg-primary);
   --modal-overlay: rgba(0, 0, 0, 0.8);

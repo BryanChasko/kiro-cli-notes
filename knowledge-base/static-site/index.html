@@ -12,6 +12,22 @@
         <header class="header">
             <h1>🔍 Kiro CLI Knowledge Base</h1>
             <p class="subtitle">Search through Kiro CLI documentation, tutorials, and best practices</p>
+            <button class="theme-toggle" id="themeToggle" title="Switch to dark theme">
+                <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </header>
 
         <main class="main">
@@ -26,15 +42,14 @@
                     >
                     <button id="searchButton" class="search-button btn">Search</button>
                 </div>
+                
+                <div class="filters">
                     <div class="filter-group">
                         <label for="contentTypeFilter">Content Type:</label>
                         <select id="contentTypeFilter" class="filter-select">
                             <option value="">All Types</option>
-                            <option value="setup">Setup & Configuration</option>
-                            <option value="video-derived">Video Tutorials</option>
-                            <option value="steering">Standards & Best Practices</option>
-                            <option value="workflows">Workflows & Automation</option>
-                            <option value="mcp">MCP Integration</option>
+                            <option value="setup">Setup</option>
+                            <option value="tutorial">Tutorial</option>
                         </select>
                     </div>
                     
@@ -42,12 +57,14 @@
                         <label for="tagFilter">Tags:</label>
                         <select id="tagFilter" class="filter-select">
                             <option value="">All Tags</option>
-                            <option value="day-1-essentials">Day 1 Essentials</option>
-                            <option value="setup">Setup</option>
-                            <option value="mcp">MCP</option>
-                            <option value="aws">AWS</option>
-                            <option value="agents">Agents</option>
-                            <option value="tutorial">Tutorials</option>
+                            <option value="Agents">Agents</option>
+                            <option value="Configuration">Configuration</option>
+                            <option value="Integration">Integration</option>
+                            <option value="MCP">MCP</option>
+                            <option value="Monitoring">Monitoring</option>
+                            <option value="OpenTelemetry">OpenTelemetry</option>
+                            <option value="Setup">Setup</option>
+                            <option value="Tracing">Tracing</option>
                         </select>
                     </div>
                 </div>
@@ -102,8 +119,8 @@
     <script src="js/terminal-modal.js"></script>
     <script src="js/theme-toggle.js"></script>
     <script src="js/ascii-components.js"></script>
-    <script src="js/indexeddb.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/indexeddb.js?v=5"></script>
+    <script src="js/search.js?v=5"></script>
+    <script src="js/app.js?v=5"></script>
 </body>
 </html>

@@ -48,6 +48,9 @@ class KnowledgeApp {
             // Set up event listeners
             this.setupEventListeners();
             
+            // Populate filter dropdowns
+            await this.populateFilters();
+            
             // Demo ASCII components
             this.setupASCIIDemo();
             
@@ -177,7 +180,9 @@ class KnowledgeApp {
         try {
             this.showLoading(true);
             
+            console.log('🔍 APP CALLING SEARCH:', { query, filters, searchObject: !!this.search });
             const results = await this.search.search(query, filters);
+            console.log('🔍 APP SEARCH RESULTS:', results);
             const formattedResults = this.search.formatResults(results);
             
             this.tracer.addEvent(span, 'search_completed', { 
@@ -208,17 +213,43 @@ class KnowledgeApp {
      * @param {Array} results - Formatted search results
      */
     displayResults(results) {
-        const container = this.elements.searchResults;
+        console.log('displayResults called with:', results);
         
-        if (results.length === 0) {
-            container.innerHTML = '';
-            this.elements.noResults.classList.remove('hidden');
-            return;
-        }
+        try {
+            const container = this.elements.searchResults;
+            
+            if (!container) {
+                console.error('Search results container not found');
+                return;
+            }
 
-        this.elements.noResults.classList.add('hidden');
-        
-        container.innerHTML = results.map(result => this.createResultHTML(result)).join('');
+            if (!results || results.length === 0) {
+                console.log('No results to display');
+                container.innerHTML = '';
+                if (this.elements.noResults) {
+                    this.elements.noResults.classList.remove('hidden');
+                }
+                return;
+            }
+
+            console.log('Processing', results.length, 'results');
+
+            if (this.elements.noResults) {
+                this.elements.noResults.classList.add('hidden');
+            }
+            
+            const htmlResults = results.map((result, index) => {
+                console.log(`Creating HTML for result ${index}:`, result);
+                return this.createResultHTML(result);
+            });
+
+            console.log('Setting innerHTML with', htmlResults.length, 'HTML results');
+            container.innerHTML = htmlResults.join('');
+            
+            console.log('Display completed successfully, container has', container.children.length, 'children');
+        } catch (error) {
+            console.error('Display results failed:', error);
+        }
     }
 
     /**
@@ -227,28 +258,49 @@ class KnowledgeApp {
      * @returns {string}
      */
     createResultHTML(result) {
-        const highlightedContent = this.search.highlightSearchTerms(result.displayContent, this.currentQuery);
+        console.log('createResultHTML called with:', result);
         
-        const tagsHTML = result.tags.map(tag => 
-            `<span class="tag ${this.currentFilters.tag === tag ? 'primary' : ''}">${tag}</span>`
-        ).join('');
+        try {
+            if (!result) {
+                console.log('No result provided');
+                return '';
+            }
 
-        const scoreHTML = result.relevanceScore > 0 ? 
-            `<span class="result-score">Score: ${result.relevanceScore.toFixed(1)}</span>` : '';
+            const highlightedContent = this.search.highlightSearchTerms(result.displayContent || '', this.currentQuery || '');
+            
+            console.log('Content highlighted:', {
+                original: result.displayContent?.length || 0,
+                highlighted: highlightedContent.length,
+                hasHighlights: highlightedContent.includes('<mark>')
+            });
+            
+            const tagsHTML = (result.tags || []).map(tag => 
+                `<span class="tag ${this.currentFilters?.tag === tag ? 'primary' : ''}">${tag}</span>`
+            ).join('');
 
-        return `
-            <div class="result-item">
-                <div class="result-header">
-                    <div class="result-meta">
-                        <span class="result-source">${result.displaySource}</span>
-                        <span class="content-type">${result.contentType}</span>
-                        ${scoreHTML}
+            const scoreHTML = result.relevanceScore > 0 ? 
+                `<span class="result-score">Score: ${result.relevanceScore.toFixed(1)}</span>` : '';
+
+            const html = `
+                <div class="result-item">
+                    <div class="result-header">
+                        <div class="result-meta">
+                            <span class="result-source">${result.displaySource || 'Unknown'}</span>
+                            <span class="content-type">${result.contentType || 'Unknown'}</span>
+                            ${scoreHTML}
+                        </div>
                     </div>
+                    <div class="result-content">${highlightedContent}</div>
+                    <div class="result-tags">${tagsHTML}</div>
                 </div>
-                <div class="result-content">${highlightedContent}</div>
-                <div class="result-tags">${tagsHTML}</div>
-            </div>
-        `;
+            `;
+
+            console.log('HTML created successfully, length:', html.length);
+            return html;
+        } catch (error) {
+            console.error('Create result HTML failed:', error);
+            return '';
+        }
     }
 
     /**
@@ -372,7 +424,7 @@ class KnowledgeApp {
      */
     setupASCIIDemo() {
         // Add system status divider
-        const systemDivider = ASCII.createDivider('SYSTEM ONLINE', 'system');
+        const systemDivider = ASCII.createDivider('SYSTEM', 'system');
         const main = document.querySelector('.main');
         main.insertBefore(systemDivider, main.firstChild);
 
@@ -407,6 +459,69 @@ class KnowledgeApp {
     }
 
     /**
+     * Populate filter dropdowns with available options
+     */
+    async populateFilters() {
+        try {
+            const chunks = await this.db.getAllChunks();
+            
+            // Extract unique content types and tags
+            const contentTypes = new Set();
+            const tags = new Set();
+            
+            chunks.forEach(chunk => {
+                if (chunk.metadata) {
+                    if (chunk.metadata.contentType) {
+                        contentTypes.add(chunk.metadata.contentType);
+                    }
+                    if (chunk.metadata.tags && Array.isArray(chunk.metadata.tags)) {
+                        chunk.metadata.tags.forEach(tag => tags.add(tag));
+                    }
+                }
+            });
+            
+            // Populate content type filter - use direct DOM query
+            const contentTypeFilter = document.getElementById('contentTypeFilter');
+            if (contentTypeFilter) {
+                // Clear existing options except "All Types"
+                while (contentTypeFilter.options.length > 1) {
+                    contentTypeFilter.remove(1);
+                }
+                
+                // Add content type options
+                Array.from(contentTypes).sort().forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type;
+                    option.textContent = type;
+                    contentTypeFilter.appendChild(option);
+                });
+            }
+            
+            // Populate tag filter - use direct DOM query
+            const tagFilter = document.getElementById('tagFilter');
+            if (tagFilter) {
+                // Clear existing options except "All Tags"
+                while (tagFilter.options.length > 1) {
+                    tagFilter.remove(1);
+                }
+                
+                // Add tag options
+                Array.from(tags).sort().forEach(tag => {
+                    const option = document.createElement('option');
+                    option.value = tag;
+                    option.textContent = tag;
+                    tagFilter.appendChild(option);
+                });
+            }
+            
+            console.log(`Populated filters: ${contentTypes.size} content types, ${tags.size} tags`);
+            
+        } catch (error) {
+            console.error('Failed to populate filters:', error);
+        }
+    }
+
+    /**
      * Debounce function to limit API calls
      * @param {Function} func - Function to debounce
      * @param {number} wait - Wait time in milliseconds
@@ -428,6 +543,7 @@ class KnowledgeApp {
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     const app = new KnowledgeApp();
+    window.app = app; // Expose to global scope for debugging
     app.init().catch(error => {
         console.error('Failed to start application:', error);
     });

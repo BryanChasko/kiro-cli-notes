@@ -113,33 +113,61 @@ class KnowledgeDB {
      * @returns {Promise<Array>}
      */
     async searchChunks(query, filters = {}) {
+        console.log('searchChunks called with:', { query, filters });
+        
         const chunks = await this.getAllChunks();
+        console.log('getAllChunks returned:', chunks.length, 'chunks');
+        console.log('First chunk sample:', chunks[0]);
+        
         let results = chunks;
 
         // Apply content type filter
-        if (filters.contentType) {
-            results = results.filter(chunk => chunk.contentType === filters.contentType);
+        if (filters.contentType && filters.contentType !== '') {
+            console.log('Applying contentType filter:', filters.contentType);
+            results = results.filter(chunk => {
+                // Handle mapping between display names and actual values
+                const actualContentType = chunk.metadata?.contentType || chunk.contentType;
+                console.log('Chunk contentType:', actualContentType, 'Filter:', filters.contentType);
+                const matches = actualContentType === filters.contentType;
+                return matches;
+            });
+            console.log('After contentType filter:', results.length, 'results');
         }
 
         // Apply tag filter
-        if (filters.tag) {
-            results = results.filter(chunk => chunk.tags.includes(filters.tag));
+        if (filters.tag && filters.tag !== '') {
+            console.log('Applying tag filter:', filters.tag);
+            results = results.filter(chunk => {
+                const tags = chunk.metadata?.tags || chunk.tags || [];
+                console.log('Chunk tags:', tags, 'Filter:', filters.tag);
+                return tags.includes(filters.tag);
+            });
+            console.log('After tag filter:', results.length, 'results');
         }
 
         // Apply text search
         if (query && query.trim()) {
+            console.log('Applying text search for query:', query);
             const searchTerms = query.toLowerCase().split(' ').filter(term => term.length > 0);
+            console.log('Search terms:', searchTerms);
             
             results = results.filter(chunk => {
-                const searchText = (chunk.content + ' ' + chunk.source + ' ' + chunk.tags.join(' ')).toLowerCase();
-                return searchTerms.some(term => searchText.includes(term));
+                const tags = chunk.metadata?.tags || [];
+                const searchText = ((chunk.content || '') + ' ' + (chunk.source || '') + ' ' + tags.join(' ')).toLowerCase();
+                const matches = searchTerms.some(term => searchText.includes(term));
+                if (matches) {
+                    console.log('Match found in chunk:', chunk.id, 'for terms:', searchTerms);
+                }
+                return matches;
             });
+            
+            console.log('After text search:', results.length, 'results');
 
             // Score results based on relevance
             results = results.map(chunk => {
                 let keywordScore = 0;
-                const searchText = chunk.content.toLowerCase();
-                const sourceText = chunk.source.toLowerCase();
+                const searchText = (chunk.content || '').toLowerCase();
+                const sourceText = (chunk.source || '').toLowerCase();
                 
                 searchTerms.forEach(term => {
                     // Higher score for matches in content
@@ -255,7 +283,7 @@ class KnowledgeDB {
      */
     async getContentTypes() {
         const chunks = await this.getAllChunks();
-        const types = [...new Set(chunks.map(chunk => chunk.contentType))];
+        const types = [...new Set(chunks.map(chunk => chunk.metadata?.contentType).filter(Boolean))];
         return types.sort();
     }
 
@@ -265,8 +293,8 @@ class KnowledgeDB {
      */
     async getTags() {
         const chunks = await this.getAllChunks();
-        const allTags = chunks.flatMap(chunk => chunk.tags);
-        const uniqueTags = [...new Set(allTags)];
+        const allTags = chunks.flatMap(chunk => chunk.metadata?.tags || []);
+        const uniqueTags = [...new Set(allTags)].filter(Boolean);
         return uniqueTags.sort();
     }
 

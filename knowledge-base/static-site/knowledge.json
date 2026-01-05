@@ -3,10 +3,41 @@
     "exportDate": "2026-01-04T23:47:27.226Z",
     "version": "1.0.0",
     "source": "kiro-cli-knowledge-base",
-    "totalChunks": 0
+    "totalChunks": 3
   },
   "knowledgeBases": [
     "kiro-cli"
   ],
-  "chunks": []
+  "chunks": [
+    {
+      "id": "1",
+      "content": "MCP integration with Kiro CLI allows you to connect to Model Context Protocol servers for enhanced functionality. Use the mcp-add command to add new servers and mcp-config-set to configure them.",
+      "metadata": {
+        "title": "MCP Integration Guide",
+        "contentType": "Setup",
+        "tags": ["MCP", "Integration", "Setup"],
+        "source": "kiro-cli-docs"
+      }
+    },
+    {
+      "id": "2", 
+      "content": "Setting up custom agents in Kiro CLI involves creating agent profiles with specific tools and configurations. Agents can be specialized for different tasks like code analysis, documentation, or AWS management.",
+      "metadata": {
+        "title": "Custom Agents Setup",
+        "contentType": "Tutorial",
+        "tags": ["Agents", "Configuration", "Setup"],
+        "source": "kiro-cli-docs"
+      }
+    },
+    {
+      "id": "3",
+      "content": "OpenTelemetry tracing in Kiro CLI provides detailed insights into operation performance. Use the enhanced terminal output to monitor trace spans, events, and metrics in real-time.",
+      "metadata": {
+        "title": "OpenTelemetry Tracing",
+        "contentType": "Tutorial", 
+        "tags": ["OpenTelemetry", "Tracing", "Monitoring"],
+        "source": "kiro-cli-docs"
+      }
+    }
+  ]
 }

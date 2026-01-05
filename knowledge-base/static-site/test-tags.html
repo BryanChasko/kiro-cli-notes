@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tags Test</title>
+</head>
+<body>
+    <h1>Tags Filter Test</h1>
+    
+    <select id="tagFilter">
+        <option value="">All Tags</option>
+    </select>
+    
+    <div id="results"></div>
+    
+    <script>
+        // Test data (same as knowledge.json)
+        const testData = [
+            {
+                id: "1",
+                metadata: {
+                    title: "MCP Integration Guide",
+                    contentType: "Setup", 
+                    tags: ["MCP", "Integration", "Setup"]
+                }
+            },
+            {
+                id: "2",
+                metadata: {
+                    title: "Custom Agents Setup",
+                    contentType: "Tutorial",
+                    tags: ["Agents", "Configuration", "Setup"]
+                }
+            },
+            {
+                id: "3", 
+                metadata: {
+                    title: "OpenTelemetry Tracing",
+                    contentType: "Tutorial",
+                    tags: ["OpenTelemetry", "Tracing", "Monitoring"]
+                }
+            }
+        ];
+        
+        // Extract tags
+        const tags = new Set();
+        testData.forEach(chunk => {
+            if (chunk.metadata && chunk.metadata.tags && Array.isArray(chunk.metadata.tags)) {
+                chunk.metadata.tags.forEach(tag => tags.add(tag));
+            }
+        });
+        
+        // Populate dropdown
+        const tagFilter = document.getElementById('tagFilter');
+        Array.from(tags).sort().forEach(tag => {
+            const option = document.createElement('option');
+            option.value = tag;
+            option.textContent = tag;
+            tagFilter.appendChild(option);
+        });
+        
+        // Show results
+        const results = document.getElementById('results');
+        results.innerHTML = `
+            <h2>Test Results:</h2>
+            <p><strong>Total options:</strong> ${tagFilter.options.length}</p>
+            <p><strong>Tags found:</strong> ${Array.from(tags).sort().join(', ')}</p>
+            <p><strong>Dropdown options:</strong></p>
+            <ul>
+                ${Array.from(tagFilter.options).map(opt => 
+                    `<li>Value: "${opt.value}", Text: "${opt.textContent}"</li>`
+                ).join('')}
+            </ul>
+        `;
+        
+        console.log('Tags extracted:', Array.from(tags).sort());
+        console.log('Dropdown populated with', tagFilter.options.length, 'options');
+    </script>
+</body>
+</html>
