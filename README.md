@@ -1,115 +1,94 @@
-# Kiro CLI Knowledge Base Search System
-
-A comprehensive internal documentation search system for Kiro CLI developers, featuring semantic search, advanced filtering, and contextual discovery across all Kiro CLI setup patterns, tutorials, and best practices.
-
-## 🚀 Features
-
-- **Semantic Search**: AI-powered search using local Ollama embeddings
-- **Advanced Filtering**: Filter by content type, tags, and source
-- **Contextual Sections**: Quick access to Day 1 Essentials, MCP Setup, Workflows
-- **Client-Side Storage**: Fast IndexedDB-based search with offline capability
-- **Responsive Design**: Works on desktop and mobile devices
-- **Real-time Updates**: Automatic knowledge base updates when content changes
-
-## 📁 Repository Structure
-
 ```
-├── knowledge-base/           # Knowledge base search system
-│   ├── mcp-server/          # MCP server with Ollama embeddings
-│   ├── export-pipeline/     # Content extraction and processing
-│   ├── static-site/         # Web interface and search functionality
-│   └── knowledge-bases/     # Organized content storage
-├── video-content/           # Video transcripts and analysis
-├── docs/                    # Setup documentation and guides
-├── configs/                 # Configuration files
-├── agents/                  # Custom agent profiles
-├── hooks/                   # Automation hooks
-├── steering/                # Development standards
-├── workflows/               # SDLC workflows
-├── tools/                   # Utility scripts
-└── scripts/                 # Setup and maintenance scripts
+  +-[ kiro-cli-notes ]--------------------------------------+
+  |  knowledge base search system for kiro cli developers  |
+  |  semantic search . mcp . ollama . indexdb              |
+  +---------------------------------------------------------+
 ```
 
-## 🔧 Quick Start
+internal documentation search system for kiro cli developers. semantic search
+across all kiro cli setup patterns, tutorials, and best practices. runs local
+via ollama -- no external api keys required.
 
-### Option 1: Complete Knowledge Base Setup
+---
+
+## features
+
+- semantic search via local ollama embeddings (nomic-embed-text)
+- filtering by content type, tags, and source
+- indexdb-based client-side storage -- offline capable
+- real-time updates when content changes
+
+---
+
+## repository structure
+
+```
+knowledge-base/
+  mcp-server/          -- mcp server with ollama embeddings
+  export-pipeline/     -- content extraction and processing
+  static-site/         -- web interface and search
+  knowledge-bases/     -- organized content storage
+video-content/         -- video transcripts and analysis
+docs/                  -- setup documentation
+configs/               -- configuration files
+agents/                -- custom agent profiles
+hooks/                 -- automation hooks
+steering/              -- development standards
+workflows/             -- sdlc workflows
+tools/                 -- utility scripts
+scripts/               -- setup and maintenance
+```
+
+---
+
+## quick start
+
+complete setup:
 ```bash
-# Full setup with search system
 ./scripts/setup-knowledge-base.sh
 ```
 
-### Option 2: Basic Project Setup
+basic kiro cli only:
 ```bash
-# Basic Kiro CLI setup only
 ./scripts/setup.sh
 ```
 
-### Option 3: Manual Setup
+manual setup:
 ```bash
-# 1. Set up knowledge base search
 cd knowledge-base/mcp-server
 npm install && npm run build
 ollama pull nomic-embed-text
 
-# 2. Export content
 cd ../export-pipeline
 npm install && node export-knowledge.js
 
-# 3. Start search interface
 cd ../static-site
 ./start-server.sh
 ```
 
-## 📊 Knowledge Base Stats
+---
 
-- **48 Content Chunks** indexed with semantic embeddings
-- **Content Types**: Setup (16), Video Tutorials (31), Workflows (1)
-- **Top Tags**: MCP, Integration, Tutorials, Setup, AWS, Agents
-- **Search Capabilities**: Keyword + semantic similarity matching
+## knowledge base stats
 
-## 🎯 Use Cases
+- 48 content chunks indexed with semantic embeddings
+- content types: setup (16), video tutorials (31), workflows (1)
+- top tags: mcp, integration, tutorials, setup, aws, agents
 
-### Day 1 Developer Setup
-- Quick access to essential Kiro CLI configuration
-- Step-by-step setup guides with cost optimization
-- MCP server integration patterns
+---
 
-### Advanced Development
-- SDLC workflow automation
-- Custom agent development
-- Production deployment strategies
+## content sources
 
-### Troubleshooting
-- Common issues and solutions
-- Best practices and standards
-- Video tutorial references
+based on 10 professional kiro cli tutorial videos:
+- aws re:invent 2025 presentations
+- community tutorials and best practices
+- production deployment patterns
 
-## 🔍 Search Features
+speakers: derek and kieran (aws), girish (cloud evangelist), jack carrington (blue collar coder)
 
-- **Contextual Search**: Pre-configured searches for common needs
-- **Advanced Filters**: Content type, tags, source filtering
-- **Relevance Scoring**: AI-powered result ranking
-- **Incremental Updates**: Automatic content synchronization
+---
 
-## 📚 Content Sources
+## related
 
-Based on analysis of 10 professional Kiro CLI tutorial videos:
-- AWS re:Invent 2025 presentations
-- Community tutorials and best practices
-- Real-world implementation examples
-- Production deployment patterns
+[video transcription agent](https://github.com/BryanChasko/kiro-cli-custom-agent-screenpal-video-transcription) -- technical implementation for video processing
 
-## 🤝 Attribution
-
-**Content Sources**: Professional Kiro CLI tutorial videos  
-**Speakers**: Derek & Kieran (AWS), Girish (Cloud Evangelist), Jack Carrington (Blue Collar Coder)  
-**Repository Maintainer**: Bryan Chasko (@bryanchasko)  
-**License**: MIT License
-
-## 🔗 Related Projects
-
-- [Video Transcription Agent](https://github.com/BryanChasko/kiro-cli-custom-agent-screenpal-video-transcription) - Technical implementation for video processing
-
-## 📄 License
-
-MIT License - See LICENSE file for details.
+style guide: https://github.com/BryanChasko/heraldstack-mcp/blob/main/STYLE_GUIDE.md
